@@ -7,7 +7,7 @@ export default function OrderCard() {
                 <div className='grid grid-cols-3 gap-8'>
                     {
                         [1, 1, 1].map((item, index) => (
-                            <div className=''>
+                            <div key={index} className=''>
                                 <div className='bg-gray-200 w-full h-56'></div>
                                 <div className='flex flex-col justify-center items-center p-8'>
                                     <div className='pb-6'>
