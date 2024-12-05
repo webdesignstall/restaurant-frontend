@@ -7,6 +7,9 @@ import MainSlider from './component/MainSlider';
 import TopNavbar from './component/TopNavbar';
 import OrderForm from './component/OrderForm';
 import OrderCard from './component/OrderCard';
+import MarkSection from './component/MarkSection';
+import Food from './component/Food';
+import Fusion from './component/Fusion';
 
 export default function Home() {
   return (
@@ -28,6 +31,9 @@ export default function Home() {
         <OrderForm />
         {/* Order Card */}
         <OrderCard />
+        <MarkSection />
+        <Food />
+        <Fusion />
       </div>
     </div>
   );
