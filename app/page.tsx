@@ -16,7 +16,7 @@ export default function Home() {
     <div>
       <div>
         {/* Top bar */}
-        <div className="text-center w-full text-white font-medium tracking-wide text-[16px] py-2.5 bg-[#FFA014]">
+        <div className="text-center w-full text-gray-900 font-medium tracking-wide text-[15px] py-2.5 bg-[#FFA014]">
           <p>Book your holiday party and catering today | Book Now</p>
         </div>
 
@@ -24,7 +24,9 @@ export default function Home() {
           <Link href="/">Enable Accessibility</Link>
         </div>
         {/* Navbar */}
-        <TopNavbar />
+        <div className='sticky top-0 bg-white z-40'>
+          <TopNavbar />
+        </div>
         {/* slider */}
         <MainSlider />
         {/* OrderForm */}
