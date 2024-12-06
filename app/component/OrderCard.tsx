@@ -4,7 +4,7 @@ export default function OrderCard() {
     return (
         <div>
             <div className='px-2 py-24'>
-                <div className='grid grid-cols-3 gap-8'>
+                <div className='md:grid lg:grid-cols-3 md:grid-cols-2 gap-8 max-w-7xl m-auto '>
                     {
                         [1, 1, 1].map((item, index) => (
                             <div key={index} className=''>
@@ -28,3 +28,4 @@ export default function OrderCard() {
         </div>
     )
 }
+

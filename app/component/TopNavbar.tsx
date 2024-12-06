@@ -1,12 +1,13 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import MobileNavbar from './MobileNavbar'
 
 export default function TopNavbar() {
     return (
         <div>
             <div>
-                <div>
+                <div className='hidden md:flex'>
                     <nav className='flex justify-between items-center w-full px-4 relative'>
                         <div className='absolute top-0 z-30'>
                             <Image
@@ -16,21 +17,25 @@ export default function TopNavbar() {
                                 alt='Logo'
                             />
                         </div>
-                        <ul className='flex flex-row ml-36'>
+                        <div></div>
+                        <ul className='flex flex-row lg:ml-28'>
                             {
                                 navItem.map((item, index) => (
                                     <li key={index}>
-                                        <Link className='text-wrap w-fit pr-8 h-20 flex justify-center items-center' href='/'>{item.title}</Link>
+                                        <Link className='text-wrap w-fit lg:pr-7 md:pr-5 h-20 flex justify-center items-center' href='/'>{item.title}</Link>
                                     </li>
                                 ))
                             }
                         </ul>
-                        <div className='flex space-x-4'>
-                            <div className='bg-black text-wrap rounded-full py-2 px-8 text-gray-200 font-[600] tracking-wide'>Reservation</div>
-                            <div className='bg-[#ffa012] text-wrap rounded-full py-2 px-8 text-black font-[600] tracking-wide'>Order Line</div>
-                            <div className='bg-black text-wrap rounded-full py-2 px-8 text-gray-200 font-[600] tracking-wide'>Catering</div>
+                        <div className='xl:flex space-x-4 hidden'>
+                            <div className='bg-black rounded-full py-2 px-8 text-gray-200 font-[600] tracking-wide'>Reservation</div>
+                            <div className='bg-[#ffa012] rounded-full py-2 px-8 text-black font-[600] tracking-wide'>Order Line</div>
+                            <div className='bg-black rounded-full py-2 px-8 text-gray-200 font-[600] tracking-wide'>Catering</div>
                         </div>
                     </nav>
+                </div>
+                <div>
+                    <MobileNavbar />
                 </div>
             </div>
         </div>
