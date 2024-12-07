@@ -7,10 +7,10 @@ export default function Fusion() {
                 <div className='py-20 px-2'>
                     <div className='max-w-screen-2xl m-auto'>
                         <div className='py-16'>
-                            <p className='text-6xl font-extrabold text-center uppercase'>Honest to goodness goodness</p>
+                            <p className='lg:text-6xl text-xl font-extrabold text-center uppercase'>Honest to goodness goodness</p>
                         </div>
                         <div>
-                            <div className='grid grid-cols-4 gap-5'>
+                            <div className='md:grid lg:grid-cols-4 md:grid-cols-2 flex flex-col gap-5'>
                                 {
                                     [1, 2, 2, 4].map((_, index) => (
                                         <div key={index}>
