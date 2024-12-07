@@ -1,8 +1,9 @@
 'use client';
 
 import { motion, AnimatePresence } from 'framer-motion';
+'use client'
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import MainSlider from './component/MainSlider';
 import TopNavbar from './component/TopNavbar';
 import OrderForm from './component/OrderForm';
@@ -24,7 +25,7 @@ export default function Home() {
           <Link href="/">Enable Accessibility</Link>
         </div>
         {/* Navbar */}
-        <div className='sticky top-0 bg-white z-40'>
+        <div className='sticky lg:top-0 -top-1 bg-white z-40'>
           <TopNavbar />
         </div>
         {/* slider */}

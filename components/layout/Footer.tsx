@@ -5,15 +5,16 @@ import { FaTiktok } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebookF } from "react-icons/fa";
+import { Button } from '../ui/button';
 
 export default function Footer() {
     return (
         <div className='bg-[#3b3d2f] pt-16 pb-36'>
             <div className='max-w-screen-2xl m-auto'>
-                <div className='md:grid flex flex-col justify-center items-center md:items-start md:grid-cols-3 xl:grid-cols-4 md:px-10'>
+                <div className='md:grid flex flex-col justify-center items-center md:items-start md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 md:px-10'>
                     {
                         items.map((item, index) => (
-                            <div key={index}>
+                            <div className='md:pl-10' key={index}>
                                 <h2 className='text-2xl text-center md:text-left font-semibold pb-6 text-white uppercase'>
                                     {item.title}
                                 </h2>
@@ -22,7 +23,7 @@ export default function Footer() {
                                         {
                                             item.menu.map((item, index) => (
                                                 <li key={index}>
-                                                    <Link className='text-sm text-center flex flex-col justify-center items-center md:justify-start md:items-start pb-2 text-gray-300 hover:text-gray-100 duration-150' href={item.link}>{item.title}</Link>
+                                                    <Link className='text-sm text-center lg:text-left flex flex-col justify-center items-center md:justify-start md:items-start pb-2 text-gray-300 hover:text-gray-100 duration-150' href={item.link}>{item.title}</Link>
                                                 </li>
                                             ))
                                         }
@@ -32,31 +33,33 @@ export default function Footer() {
 
                         ))
                     }
-                    <div className='md:grid-cols-3 px-8 flex justify-center items-start flex-col w-full'>
+                    <div className='md:col-span-3 md:max-w-screen-md lg:col-span-2 m-auto  px-8 flex justify-center items-start lg:justify-start flex-col w-full mt-8 lg:mt-0'>
                         <div className='w-full'>
-                            <h2 className='text-3xl font-semibold pb-6 text-white uppercase text-center'>
+                            <h2 className='text-3xl font-semibold pb-6 text-white uppercase text-center lg:text-left'>
                                 true INSIDER
                             </h2>
                         </div>
-                        <div className='w-full'>
-                            <p className='text-gray-200 font-normal text-center'>Get the inside scoop - Join for news, special offers & more</p>
+                        <div className='w-full pb-4'>
+                            <p className='text-gray-200 font-normal text-center lg:text-left'>Get the inside scoop - Join for news, special offers & more</p>
                         </div>
                         <div className='flex flex-col justify-center items-center w-full'>
-                            <div>
-                                <label className='text-white pb-2' htmlFor="">Email</label>
-                                <input className='w-full p-2 ' type="email" placeholder='Email' />
+                            <div className='w-full'>
+                                <label className='text-white pb-2 block text-center lg:text-left' htmlFor="">Email</label>
+                                <input className='w-full p-3 text-center rounded-2xl lg:text-left' type="email" placeholder='Email' />
                             </div>
-                            <div> <button className='text-white px-6 py-2 rounded-3xl text-left' type='submit'>Submit</button></div>
+                            <div className='w-full mt-4'>
+                                <Button className='' variant='secondary' disabled>Sign up</Button>
+                            </div>
                         </div>
-                        <div className='w-full'>
-                            <p className='text-white pb-2 text-center'>Connect With Us</p>
-                            <div className='flex flex-row justify-center items-center text-white space-x-4 pb-4'>
+                        <div className='w-full mt-8'>
+                            <p className='text-white pb-2 text-center lg:text-left'>Connect With Us</p>
+                            <div className='flex flex-row justify-center items-center lg:justify-start text-white space-x-4 pb-4'>
                                 <div><FaInstagram size={30} /> </div>
                                 <div><FaLinkedin size={30} /> </div>
                                 <div><FaTiktok size={30} /></div>
                                 <div><FaFacebookF size={30} /> </div>
                             </div>
-                            <div className='text-white text-center w-full'>
+                            <div className='text-white text-center w-full lg:text-left'>
                                 © True Food Kitchen | Terms & Privacy | Accessibility Statement
                             </div>
                         </div>
