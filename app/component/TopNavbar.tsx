@@ -1,15 +1,30 @@
+'use client'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import MobileNavbar from './MobileNavbar'
 
 export default function TopNavbar() {
+    const [scrollTop, setScrollTop] = useState(0);
+
+    // Update scroll position
+    useEffect(() => {
+        const handleScroll = () => {
+            setScrollTop(window.scrollY);
+        };
+  
+        window.addEventListener('scroll', handleScroll);
+  
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
     return (
         <div>
             <div>
                 <div className='hidden md:flex'>
                     <nav className='flex justify-between items-center w-full px-4 relative'>
-                        <div className='absolute top-0 z-30'>
+                        <div className={`absolute top-0 z-30`}>
                             <Image
                                 width={100}
                                 height={100}
