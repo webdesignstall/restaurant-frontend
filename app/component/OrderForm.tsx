@@ -44,11 +44,11 @@ export default function OrderForm() {
     const [open, setOpen] = React.useState(false)
     const [value, setValue] = React.useState("")
     return (
-        <div className='h-fit bg-[#595e48] md:p-10 p-6'>
+        <div className='h-fit bg-[#595e48] md:p-10 p-6 -mt-4'>
             <div className='lg:grid grid-cols-5 max-w-6xl m-auto h-full gap-10'>
                 <div className='flex flex-col justify-center items-start col-span-2'>
                     <div className='pb-4'>
-                        <p className='lg:text-6xl text-3xl font-extrabold text-white'>Join The Club</p>
+                        <p className='lg:text-6xl text-3xl font-extrabold text-white font-bebas'>Join The Club</p>
                     </div>
                     <div className='pb-4'>
                         <p className='text-white text-xl'>Become a True Insider – Join for news, special offers & more.</p>

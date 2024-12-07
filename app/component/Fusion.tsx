@@ -30,11 +30,11 @@ const items = [
 
 export default function Fusion() {
   return (
-    <div className="py-20 px-4">
+    <div className="pb-20 pt-6 px-4">
       <div className="max-w-screen-2xl mx-auto">
         {/* Header Section */}
-        <div className="py-16">
-          <p className="lg:text-6xl text-2xl font-extrabold text-center uppercase tracking-wide">
+        <div className="py-10">
+          <p className="lg:text-6xl text-6xl tracking-wide font-[900] text-[#3b3d2f] text-center font-bebas">
             Honest to Goodness Goodness
           </p>
         </div>

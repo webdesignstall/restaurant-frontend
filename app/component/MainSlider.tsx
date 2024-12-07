@@ -90,16 +90,17 @@ export default function AnimatedSlider() {
                 animate={{
                   opacity: currentSlide === index ? 1 : 0,
                   y: currentSlide === index ? 0 : 20,
+
                 }}
-                transition={{ type: 'spring', stiffness: 80, damping: 20 }}
+                transition={{ type: 'spring', stiffness: 80, damping: 20, delay: 0.3 }}
               >
-                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-semibold text-white mb-4">
+                <h1 className="text-3xl sm:text-5xl lg:text-[5rem] font-semibold text-white mb-0 font-bebas tracking-wide">
                   {slide.title}
                 </h1>
-                <p className="text-base sm:text-lg lg:text-2xl text-white mb-6">
+                <p className="text-base sm:text-lg lg:text-2xl text-white mb-10">
                   {slide.subtitle}
                 </p>
-                <button className="px-10 py-2 text-sm sm:text-base lg:text-lg font-medium rounded-full bg-orange-600 text-white hover:bg-gray-200 transition">
+                <button className="px-10 py-2 text-sm sm:text-base lg:text-lg font-medium rounded-full bg-orange-600 hover:bg-orange-500 text-white transition">
                   {slide.buttonText}
                 </button>
               </motion.div>

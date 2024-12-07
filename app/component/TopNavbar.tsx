@@ -3,9 +3,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import MobileNavbar from './MobileNavbar'
+import { usePathname } from 'next/navigation'
 
 export default function TopNavbar() {
     const [scrollTop, setScrollTop] = useState(0);
+    const pathName = usePathname()
 
     // Update scroll position
     useEffect(() => {
@@ -23,21 +25,23 @@ export default function TopNavbar() {
         <div>
             <div>
                 <div className='hidden md:flex'>
-                    <nav className='flex justify-between items-center w-full px-4 relative'>
+                    <nav className='flex justify-between items-center w-full px-4 relative shadow-lg'>
                         <div className={`absolute top-0 z-30`}>
+                            <Link href='/'>
                             <Image
                                 width={100}
                                 height={100}
                                 src='/logofile.png'
                                 alt='Logo'
                             />
+                            </Link>
                         </div>
                         <div></div>
-                        <ul className='flex flex-row lg:ml-28'>
+                        <ul className='flex flex-row lg:ml-28 h-16 justify-center items-center'>
                             {
                                 navItem.map((item, index) => (
-                                    <li key={index}>
-                                        <Link className='text-wrap w-fit lg:pr-7 md:pr-5 h-20 flex justify-center items-center' href='/'>{item.title}</Link>
+                                    <li className='pr-6' key={index}>
+                                        <Link className={`text-wrap w-fit flex justify-center items-center border-b-2  ${pathName === item.link ? 'border-gray-800' : 'border-white'}`} href={item.link}>{item.title}</Link>
                                     </li>
                                 ))
                             }
@@ -62,36 +66,21 @@ export const navItem = [
     {
         id: 1,
         title: 'Menu',
-        link: '/'
+        link: '/menu'
     },
     {
         id: 2,
-        title: 'Locations',
-        link: '/'
+        title: "What's New",
+        link: '/whats-new'
     },
     {
         id: 3,
-        title: "What's New",
-        link: '/'
+        title: "Our Story",
+        link: '/truestory'
     },
     {
         id: 4,
-        title: "Our Story",
-        link: '/'
-    },
-    {
-        id: 5,
         title: "Group Dining",
-        link: '/'
+        link: '/group-dining'
     },
-    {
-        id: 6,
-        title: "Gift Cards",
-        link: '/'
-    },
-    {
-        id: 7,
-        title: "Careers",
-        link: '/'
-    }
 ]

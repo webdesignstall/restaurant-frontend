@@ -15,7 +15,7 @@ export default function Footer() {
                     {
                         items.map((item, index) => (
                             <div className='md:pl-10' key={index}>
-                                <h2 className='text-2xl text-center md:text-left font-semibold pb-6 text-white uppercase'>
+                                <h2 className='text-[2rem] text-center md:text-left font-semibold pb-6 font-bebas tracking-wide text-white uppercase'>
                                     {item.title}
                                 </h2>
                                 <div>
@@ -35,7 +35,7 @@ export default function Footer() {
                     }
                     <div className='md:col-span-3 md:max-w-screen-md lg:col-span-2 m-auto  px-8 flex justify-center items-start lg:justify-start flex-col w-full mt-8 lg:mt-0'>
                         <div className='w-full'>
-                            <h2 className='text-3xl font-semibold pb-6 text-white uppercase text-center lg:text-left'>
+                            <h2 className='text-[2rem] font-semibold pb-6 tracking-wide text-white uppercase text-center lg:text-left font-bebas'>
                                 true INSIDER
                             </h2>
                         </div>

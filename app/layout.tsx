@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Roboto } from 'next/font/google';
 import Footer from "@/components/layout/Footer";
+import Layout from "@/components/layout/Layout";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -40,8 +41,9 @@ export default function RootLayout({
       <body
         className={`${roboto.className} antialiased`}
       >
-        {children}
-        <Footer />
+        <Layout>
+          {children}
+        </Layout>
       </body>
     </html>
   );

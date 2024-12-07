@@ -1,3 +1,7 @@
+@import "@fontsource/bebas-neue"; 
+@import "@fontsource/roboto"; /* Defaults to 400 weight */
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
