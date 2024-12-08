@@ -8,7 +8,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div>
             <div>
                 <div className="text-center w-full text-gray-900 font-medium tracking-wide text-[15px] py-2.5 bg-[#FFA014]">
-                    <p>Book your holiday party and catering today | Book Now</p>
+                    <p>Book your holiday party and catering today | <Link href='/events'>Book Now</Link></p>
                 </div>
 
                 <div className="bg-neutral-300 text-black py-1 px-2 text-right">
