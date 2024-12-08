@@ -1,11 +1,6 @@
 'use client';
-
-import { motion, AnimatePresence } from 'framer-motion';
-'use client'
-import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import MainSlider from './component/MainSlider';
-import TopNavbar from './component/TopNavbar';
 import OrderForm from './component/OrderForm';
 import OrderCard from './component/OrderCard';
 import MarkSection from './component/MarkSection';
