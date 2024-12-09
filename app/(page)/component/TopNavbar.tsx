@@ -51,8 +51,12 @@ export default function TopNavbar() {
                             <Button className='rounded-3xl px-6'>
                                 Reservation
                             </Button>
-                            <div className='bg-[#ffa012] rounded-full py-2 px-8 text-black font-[600] tracking-wide'>Order Line</div>
-                            <div className='bg-black rounded-full py-2 px-8 text-gray-200 font-[600] tracking-wide'>Catering</div>
+                            <Button className='rounded-3xl px-6'>
+                                Order Line
+                            </Button>
+                            <Button className='rounded-3xl px-6'>
+                                Catering
+                            </Button>
                         </div>
                     </nav>
                 </div>

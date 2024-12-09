@@ -2,7 +2,7 @@ export const navItem = [
     {
       id: 1,
       title: 'Menu',
-      link: '/'
+      link: '/menu'
     },
     {
       id: 2,

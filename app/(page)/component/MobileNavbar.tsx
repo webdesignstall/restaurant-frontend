@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { navItem } from '@/data/_nav';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -38,12 +37,13 @@ export default function MobileNavbar() {
                     className={`absolute z-30 left-6 transition-all duration-300 ${scrollTop > 0 ? 'top-0 w-16 duration-150' : '-top-8'
                         }`}
                 >
-                    <Image
-                        width={100}
-                        height={100}
-                        src="/logofile.png"
-                        alt="Logo"
-                    />
+                    <Link href='/'>
+                        <Image
+                            width={100}
+                            height={100}
+                            src="/logofile.png"
+                            alt="Logo"
+                        /></Link>
                 </div>
                 <div></div>
 
@@ -86,11 +86,11 @@ export default function MobileNavbar() {
                                 </div>
 
                                 {/* Links or Menu Items */}
-                                <div className="text-center">
-                                    <ul className="space-y-6">
+                                <div className="text-center w-full">
+                                    <ul className="space-y-7 w-full">
                                         {navItem.map((item, index) => (
-                                            <li key={index}>
-                                                <Link href="/" className="text-2xl font-semibold font-bebas">
+                                            <li className='w-full' key={index}>
+                                                <Link onClick={() => setNavber(false)} href={item.link} className="text-3xl font-semibold font-bebas border-b-4 border-b-white active:border-b-gray-800 hover:border-b-gray-800  w-full block py-2">
                                                     {item.title}
                                                 </Link>
                                             </li>
@@ -110,3 +110,42 @@ export default function MobileNavbar() {
         </div>
     );
 }
+
+
+export const navItem = [
+    {
+        id: 1,
+        title: 'Menu',
+        link: '/menu'
+    },
+    {
+        id: 2,
+        title: "What's New",
+        link: '/whats-new'
+    },
+    {
+        id: 3,
+        title: "Our Story",
+        link: '/truestory'
+    },
+    {
+        id: 4,
+        title: "Group Dining",
+        link: '/group-dining'
+    },
+    {
+        id: 6,
+        title: "Gift Cards",
+        link: '/'
+    },
+    {
+        id: 7,
+        title: "Careers",
+        link: '/'
+    },
+    {
+        id: 8,
+        title: "Close menu",
+        link: '/'
+    },
+]

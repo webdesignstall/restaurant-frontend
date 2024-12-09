@@ -6,14 +6,15 @@ import { motion } from 'framer-motion';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Image from 'next/image';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 export default function AnimatedSlider() {
   const sliderRef = useRef<Slider | null>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -22,10 +23,42 @@ export default function AnimatedSlider() {
     pauseOnHover: true,
     adaptiveHeight: true,
     afterChange: (current: number) => setCurrentSlide(current),
-    arrows: false, // Custom arrows
-    customPaging: (i: number) => (
-      <div className={`square-dot ${i === currentSlide ? 'active' : ''}`} />
+    arrows: false, // Hide default arrows
+    appendDots: (dots: any) => (
+      <div
+        style={{
+          margin: '60px 0'
+        }}
+      >
+        <ul style={{ margin: "0px" }}> {dots} </ul>
+      </div>
     ),
+    customPaging: (i: number) => (
+      <div
+        className={`${currentSlide === i
+            ? 'bg-white scale-110'
+            : 'border-white border'
+          } w-3 h-3 lg:w-4 lg:h-4 rounded-full lg:rounded-full border-white lg:flex lg:items-center lg:justify-center text-xs text-white`}
+      >
+        {/* <span className="lg:hidden">{i + 1}</span> */}
+      </div>
+    ),
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          dots: true,
+          arrows: false,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          dots: true,
+          arrows: true,
+        },
+      },
+    ],
   };
 
   const slides = [
@@ -53,32 +86,33 @@ export default function AnimatedSlider() {
     <div className="slider-container relative group">
       {/* Custom Navigation Arrows */}
       <button
-        className="absolute top-1/2 left-4 z-10 transform -translate-y-1/2 text-white bg-black/30 p-2 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 hover:bg-black"
+        className="hidden lg:block absolute top-1/2 left-4 z-10 transform -translate-y-1/2 text-white bg-black/30 p-2 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 hover:bg-black"
         onClick={() => sliderRef.current?.slickPrev()}
       >
-        <FaArrowLeft size={24} />
+        <ChevronLeft size={24} />
       </button>
       <button
-        className="absolute top-1/2 right-4 z-10 transform -translate-y-1/2 text-white bg-black/30 p-2 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 hover:bg-black"
+        className="hidden lg:block absolute top-1/2 right-4 z-10 transform -translate-y-1/2 text-white bg-black/30 p-2 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 hover:bg-black"
         onClick={() => sliderRef.current?.slickNext()}
       >
-        <FaArrowRight size={24} />
+        <ChevronRight size={24} />
       </button>
 
       <Slider ref={sliderRef} {...settings}>
         {slides.map((slide, index) => (
           <div
             key={index}
-            className="w-full h-[70vh] sm:h-[70vh] lg:h-[80vh] relative bg-cover bg-center"
+            className="w-full h-[75vh] sm:h-[75vh] lg:h-[80vh] relative bg-cover bg-center"
           >
             {/* Background Image */}
             <div className="absolute inset-0">
               <Image
+                width={1000}
+                height={1000}
                 className="w-full h-full object-cover"
                 src={slide.background}
                 alt="Slide Background"
-                layout="fill"
-                priority={index === 0}
+                priority
               />
             </div>
 
@@ -90,19 +124,23 @@ export default function AnimatedSlider() {
                 animate={{
                   opacity: currentSlide === index ? 1 : 0,
                   y: currentSlide === index ? 0 : 20,
-
                 }}
-                transition={{ type: 'spring', stiffness: 80, damping: 20, delay: 0.3 }}
+                transition={{
+                  type: 'spring',
+                  stiffness: 80,
+                  damping: 20,
+                  delay: 0.3,
+                }}
               >
-                <h1 className="text-3xl sm:text-5xl lg:text-[5rem] font-semibold text-white mb-0 font-bebas tracking-wide">
+                <h1 className="text-6xl lg:text-6xl font-bold text-white mb-2 tracking-wide font-bebas">
                   {slide.title}
                 </h1>
-                <p className="text-base sm:text-lg lg:text-2xl text-white mb-10">
+                <p className="text-2xl lg:text-3xl text-white mb-10">
                   {slide.subtitle}
                 </p>
-                <button className="px-10 py-2 text-sm sm:text-base lg:text-lg font-medium rounded-full bg-orange-600 hover:bg-orange-500 text-white transition">
+                <Button className="bg-secondary text-lg lg:text-xl font-medium py-2 lg:py-4 px-6 lg:px-8 hover:bg-secondary rounded-full text-primary">
                   {slide.buttonText}
-                </button>
+                </Button>
               </motion.div>
             </div>
           </div>

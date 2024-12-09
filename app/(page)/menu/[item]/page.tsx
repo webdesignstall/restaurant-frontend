@@ -13,17 +13,17 @@ export default function Item() {
                     </div>
                     <div className='pb-10'>
                         <Link href='/menu'>
-                            <Button className='rounded-3xl px-6' size='sm'>Back to menu</Button>
+                            <Button className='rounded-3xl px-6 text-xl' size='lg'>Back to menu</Button>
                         </Link>
                     </div>
-                    <div className='py-6'>
+                    <div className='py-4'>
                         <p className='text-4xl font-bebas text-primary text-center font-extrabold'>
                             Featured Menu Items
                         </p>
                     </div>
                 </div>
                 <div>
-                    <div className='grid grid-cols-3 max-w-7xl m-auto gap-10'>
+                    <div className='md:grid grid-cols-3 max-w-7xl m-auto flex flex-col gap-10 px-4'>
                         {
                             items.map((item, index) => (
                                 <div key={index}>
@@ -37,12 +37,12 @@ export default function Item() {
                                     </div>
                                     <div className='p-4 flex flex-col justify-center items-center'>
                                         <div className='pb-4'>
-                                            <p className='font-bebas text-3xl font-bold text-center'>
+                                            <p className='font-bebas text-4xl lg:text-3xl font-bold text-center'>
                                                 {item.title}
                                             </p>
                                         </div>
                                         <div className='text-center'>
-                                            <p>
+                                            <p className='text-lg text-center lg:text-md'>
                                                 {item.desc}
                                             </p>
                                         </div>

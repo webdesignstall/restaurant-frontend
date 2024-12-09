@@ -10,19 +10,19 @@ const items = [
   },
   {
     title: 'Savor Every Bite',
-    desc: 'Our mission is to combine exceptional flavor with superior nutrition, making healthy living both tasty and enjoyable.',
+    desc: 'At True Food Kitchen, our menu is carefully crafted so that every bite and every refreshing sip serve up big flavor, an abundance of fresh ingredients and a taste of the unexpected.',
     img: '/Home_Menu.jpg',
     buttonText: 'Learn More',
   },
   {
     title: 'Fresh Ingredients, Always',
-    desc: 'We prioritize the freshest, most sustainable ingredients to craft dishes that inspire your taste buds and your health.',
+    desc: 'We believe the best meals are shared with good company. Whether you’re ordering for the office, everyday entertaining or a special event, our catering menu lets you craft the ideal offering for your group.',
     img: '/Catering-Marketing_400x313-1.jpg',
     buttonText: 'Explore Now',
   },
   {
     title: 'Join Our Community',
-    desc: 'Be part of a movement that values real food, real connections, and real sustainability. Together, we thrive.',
+    desc: 'Find your true purpose. With a variety of opportunities awaiting you at each of our renowned restaurants spanning the nation, explore roles that align with your true passion.',
     img: '/TucsonShirt_340x266-2.jpg',
     buttonText: 'Get Started',
   },
@@ -56,13 +56,13 @@ export default function Fusion() {
               </div>
 
               {/* Content */}
-              <div className="p-2 flex flex-col justify-center items-center">
+              <div className="p-2 flex flex-col justify-between items-center h-fit">
                 {/* Title */}
                 <div>
-                  <p className="text-2xl font-semibold text-gray-800 py-4 text-center">
+                  <p className="text-5xl md:text-3xl font-bebas font-semibold text-gray-800 py-4 text-center">
                     {item.title}
                   </p>
-                  <p className="text-sm text-gray-600">{item.desc}</p>
+                  <p className="text-lg text-center text-gray-600">{item.desc}</p>
                 </div>
 
                 {/* Button */}
