@@ -24,8 +24,8 @@ export default function OrderCard() {
                         {/* Content Section */}
                         <div className="p-6 flex-1 flex flex-col justify-between">
                             <div>
-                                <h3 className="text-2xl font-semibold text-gray-800 font-bebas">{item.title}</h3>
-                                <p className="mt-4 text-gray-600 text-sm sm:text-base">{item.desc}</p>
+                                <h3 className="text-4xl text-center font-semibold text-gray-800 font-bebas">{item.title}</h3>
+                                <p className="mt-4 text-gray-600 text-xl text-center">{item.desc}</p>
                             </div>
                             <div className="mt-6 w-full flex justify-center">
                                 <Button className='rounded-3xl text-xl font-medium' size='lg'>
