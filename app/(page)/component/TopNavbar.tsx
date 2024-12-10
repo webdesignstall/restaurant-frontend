@@ -48,15 +48,21 @@ export default function TopNavbar() {
                             }
                         </ul>
                         <div className='xl:flex space-x-4 hidden'>
-                            <Button className='rounded-3xl px-6'>
-                                Reservation
-                            </Button>
-                            <Button className='rounded-3xl px-6'>
-                                Order Line
-                            </Button>
-                            <Button className='rounded-3xl px-6'>
-                                Catering
-                            </Button>
+                            <Link href='/reservation'>
+                                <Button className='rounded-3xl px-8 text-gray-200 font-semibold'>
+                                    Reservation
+                                </Button>
+                            </Link>
+                            <Link href='/order'>
+                                <Button className='rounded-3xl px-8  font-semibold bg-secondary text-primary hover:bg-secondary/80'>
+                                    Order Online
+                                </Button>
+                            </Link>
+                            <Link href='/catering'>
+                                <Button className='rounded-3xl px-8 text-gray-200 font-semibold'>
+                                    Catering
+                                </Button>
+                            </Link>
                         </div>
                     </nav>
                 </div>

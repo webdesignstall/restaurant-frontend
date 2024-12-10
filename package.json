@@ -11,6 +11,7 @@
   "dependencies": {
     "@fontsource/bebas-neue": "^5.1.0",
     "@fontsource/roboto": "^5.1.0",
+    "@hookform/resolvers": "^3.9.1",
     "@radix-ui/react-accordion": "^1.2.1",
     "@radix-ui/react-alert-dialog": "^1.1.2",
     "@radix-ui/react-avatar": "^1.1.1",
@@ -40,16 +41,17 @@
     "next": "14.2.19",
     "react": "^18",
     "react-dom": "^18",
-    "react-hook-form": "^7.53.2",
+    "react-hook-form": "^7.54.0",
     "react-icons": "^5.4.0",
     "react-resizable-panels": "^2.1.7",
     "react-slick": "^0.30.2",
     "recharts": "^2.14.1",
     "sharp": "^0.33.5",
     "slick-carousel": "^1.8.1",
+    "sonner": "^1.7.1",
     "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
-    "zod": "^3.23.8"
+    "zod": "^3.24.0"
   },
   "devDependencies": {
     "@types/node": "^20",
