@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Roboto } from 'next/font/google';
+import { Toaster } from 'sonner'
 
 
 
@@ -29,6 +30,7 @@ export default function RootLayout({
       <body
         className={`${roboto.className} antialiased`}
       >
+        <Toaster richColors  />
         {children}
       </body>
     </html>

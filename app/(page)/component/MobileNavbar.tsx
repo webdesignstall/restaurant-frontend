@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Button } from '@/components/ui/button';
 
 export default function MobileNavbar() {
     const [navber, setNavber] = useState(false);
@@ -103,9 +104,24 @@ export default function MobileNavbar() {
                 </div>
             </div>
             <div className='fixed bottom-0 left-0 h-16 bg-white w-full items-center flex justify-center space-x-3 xl:hidden z-[999] shadow-inner'>
-                <div className='bg-black text-wrap rounded-full py-2 px-8 text-gray-200 font-[600] tracking-wide'>Reservation</div>
-                <div className='bg-[#ffa012] text-wrap rounded-full py-2 px-8 text-black font-[600] tracking-wide'>Order Line</div>
-                <div className='bg-black text-wrap rounded-full py-2 px-8 text-gray-200 font-[600] tracking-wide'>Catering</div>
+               <Link href='/order'>
+               
+                <Button className='rounded-3xl px-8 text-gray-200 font-semibold'>
+                    Reservation
+                </Button>
+               </Link>
+                <Link href='/order'>
+                
+                <Button className='rounded-3xl px-8 bg-secondary hover:bg-secondary/80 text-primary font-semibold'>
+                    Order Line
+                </Button>
+                </Link>
+                <Link href='/order'>
+                
+                <Button className='rounded-3xl px-8 text-gray-200 font-semibold'>
+                    Catering
+                </Button>
+                </Link>
             </div>
         </div>
     );

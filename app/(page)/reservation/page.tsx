@@ -1,7 +1,14 @@
 import React from 'react'
+import MainSlider from '../component/MainSlider'
 
 export default function Reservation() {
   return (
-    <div>page</div>
+    <div>
+      <div>
+        <div>
+          <MainSlider />
+        </div>
+      </div>
+    </div>
   )
 }
