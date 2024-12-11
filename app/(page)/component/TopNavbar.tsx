@@ -96,4 +96,9 @@ export const navItem = [
         title: "Group Dining",
         link: '/group-dining'
     },
+    {
+        id: 5,
+        title: "Reference",
+        link: '/reference'
+    },
 ]

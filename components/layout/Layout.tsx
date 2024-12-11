@@ -11,9 +11,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     <p>Book your holiday party and catering today | <Link className='text-gray-50 font-medium' href='/events'>Book Now</Link></p>
                 </div>
 
-                <div className="bg-neutral-300 text-black py-1 px-2 text-right">
+                {/* <div className="bg-neutral-300 text-black py-1 px-2 text-right">
                     <Link href="/">Enable Accessibility</Link>
-                </div>
+                </div> */}
                 <div className='sticky -top-2  bg-white z-40'><Header /> </div>
                 <div>{children} </div>
                 <div><Footer /> </div>

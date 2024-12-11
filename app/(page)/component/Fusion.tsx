@@ -34,9 +34,9 @@ export default function Fusion() {
       <div className="max-w-screen-2xl mx-auto">
         {/* Header Section */}
         <div className="py-10">
-          <p className="lg:text-6xl text-6xl tracking-wide font-[900] text-[#3b3d2f] text-center font-bebas">
+          <h1 className="text-center tracking-wide text-primary">
             Honest to Goodness Goodness
-          </p>
+          </h1>
         </div>
 
         {/* Items Section */}
@@ -44,7 +44,7 @@ export default function Fusion() {
           {items.map((item, index) => (
             <div
               key={index}
-              className="bg-white rounded-lg overflow-hidden"
+              className="bg-white overflow-hidden"
             >
               {/* Image */}
               <div className="w-full h-56 bg-gray-300">
@@ -59,9 +59,9 @@ export default function Fusion() {
               <div className="p-2 flex flex-col justify-between items-center h-fit">
                 {/* Title */}
                 <div>
-                  <p className="text-5xl md:text-3xl font-bebas font-semibold text-gray-800 py-4 text-center">
+                  <h3 className="text-center py-3 text-primary">
                     {item.title}
-                  </p>
+                  </h3>
                   <p className="text-lg text-center text-gray-600">{item.desc}</p>
                 </div>
 

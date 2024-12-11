@@ -2,6 +2,7 @@
 import React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import Image from 'next/image'
 
 
 export default function Header() {
@@ -9,12 +10,17 @@ export default function Header() {
     return (
         <div>
             <div className='h-20 bg-white w-full flex justify-between items-center flex-row px-10'>
-                <div>
-                    <Link className='font-medium text-xl' href='/'>
-                        Home
+                <div className='mt-10'>
+                    <Link href='/'>
+                        <Image
+                            width={120}
+                            height={120}
+                            src='/logofile.png'
+                            alt='Logo'
+                        />
                     </Link>
                 </div>
-                <div>
+                <div className='hidden lg:flex'>
                     <div>
                         <ul className='flex flex-row gap-x-4'>
                             {

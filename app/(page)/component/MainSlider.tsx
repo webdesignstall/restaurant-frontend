@@ -36,8 +36,8 @@ export default function MainSlider() {
     customPaging: (i: number) => (
       <div
         className={`${currentSlide === i
-            ? 'bg-white scale-110'
-            : 'border-white border'
+          ? 'bg-white scale-110'
+          : 'border-white border'
           } w-3 h-3 lg:w-4 lg:h-4 rounded-full lg:rounded-full border-white lg:flex lg:items-center lg:justify-center text-xs text-white`}
       >
         {/* <span className="lg:hidden">{i + 1}</span> */}
@@ -102,7 +102,7 @@ export default function MainSlider() {
         {slides.map((slide, index) => (
           <div
             key={index}
-            className="w-full h-[75vh] sm:h-[75vh] lg:h-[80vh] relative bg-cover bg-center"
+            className="w-full h-[40vh] sm:h-[40vh] lg:h-[80vh] relative bg-cover bg-center"
           >
             {/* Background Image */}
             <div className="absolute inset-0">
@@ -132,12 +132,12 @@ export default function MainSlider() {
                   delay: 0.3,
                 }}
               >
-                <h1 className="text-6xl lg:text-6xl font-bold text-white mb-2 tracking-wide font-bebas">
+                <h1 className="text-white">
                   {slide.title}
                 </h1>
-                <p className="text-2xl lg:text-3xl text-white mb-10">
+                <h4 className="text-white pb-14">
                   {slide.subtitle}
-                </p>
+                </h4>
                 <Button className="bg-secondary text-lg lg:text-xl font-medium py-2 lg:py-4 px-6 lg:px-8 hover:bg-secondary rounded-full text-primary">
                   {slide.buttonText}
                 </Button>

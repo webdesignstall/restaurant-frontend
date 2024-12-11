@@ -11,6 +11,7 @@
   "dependencies": {
     "@fontsource/bebas-neue": "^5.1.0",
     "@fontsource/roboto": "^5.1.0",
+    "@headlessui/react": "^2.2.0",
     "@hookform/resolvers": "^3.9.1",
     "@radix-ui/react-accordion": "^1.2.1",
     "@radix-ui/react-alert-dialog": "^1.1.2",
@@ -39,6 +40,7 @@
     "framer-motion": "^11.13.1",
     "lucide-react": "^0.465.0",
     "next": "14.2.19",
+    "next-themes": "^0.4.4",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.54.0",

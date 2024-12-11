@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Roboto } from 'next/font/google';
 import { Toaster } from 'sonner'
+import { ThemeProvider } from "@/components/theme-provider";
 
 
 
@@ -30,8 +31,15 @@ export default function RootLayout({
       <body
         className={`${roboto.className} antialiased`}
       >
-        <Toaster richColors  />
-        {children}
+        <Toaster richColors />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

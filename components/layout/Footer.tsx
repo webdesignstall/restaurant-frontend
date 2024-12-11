@@ -11,7 +11,7 @@ export default function Footer() {
     return (
         <div className='bg-[#3b3d2f] pt-16 pb-36'>
             <div className='max-w-screen-2xl m-auto'>
-                <div className='md:grid flex flex-col justify-center items-center md:items-start md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-5 md:px-10'>
+                <div className='md:grid flex flex-col justify-center items-center md:items-start md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-6 md:px-10'>
                     {
                         items.map((item, index) => (
                             <div className='md:pl-10' key={index}>
@@ -33,7 +33,7 @@ export default function Footer() {
 
                         ))
                     }
-                    <div className='md:col-span-3 md:max-w-screen-md lg:col-span-2 m-auto  px-8 flex justify-center items-start lg:justify-start flex-col w-full mt-8 lg:mt-0'>
+                    <div className='md:col-span-4 md:max-w-screen-md lg:col-span-2 m-auto  px-8 flex justify-center items-start lg:justify-start flex-col w-full mt-8 lg:mt-0'>
                         <div className='w-full'>
                             <h2 className='text-[2rem] font-semibold pb-6 tracking-wide text-white uppercase text-center lg:text-left font-bebas'>
                                 true INSIDER
@@ -42,13 +42,12 @@ export default function Footer() {
                         <div className='w-full pb-4'>
                             <p className='text-gray-200 font-normal text-center lg:text-left'>Get the inside scoop - Join for news, special offers & more</p>
                         </div>
-                        <div className='flex flex-col justify-center items-center w-full'>
+                        <div className='flex flex-row justify-center items-center w-full'>
                             <div className='w-full'>
-                                <label className='text-white pb-2 block text-center lg:text-left' htmlFor="">Email</label>
-                                <input className='w-full p-3 text-center rounded-2xl lg:text-left' type="email" placeholder='Email' />
+                                <input className='w-full p-3 text-center lg:text-left focus-visible:ring-0' type="email" placeholder='Email' />
                             </div>
-                            <div className='w-full mt-4'>
-                                <Button className='' variant='secondary' disabled>Sign up</Button>
+                            <div className=''>
+                                <Button className='rounded-none py-6 font-semibold' variant='secondary'>Sign up</Button>
                             </div>
                         </div>
                         <div className='w-full mt-8'>
@@ -92,6 +91,27 @@ const items = [
     },
     {
         title: 'About',
+        menu: [
+            {
+                title: 'Locations',
+                link: '/locations'
+            },
+            {
+                title: 'Our Story',
+                link: '/catering'
+            },
+            {
+                title: 'Contact',
+                link: '/contact'
+            },
+            {
+                title: 'Careers',
+                link: '/careers'
+            },
+        ]
+    },
+    {
+        title: 'Address',
         menu: [
             {
                 title: 'Locations',

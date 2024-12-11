@@ -62,7 +62,7 @@ export default function SignUpForm() {
             <FormItem>
               <FormControl>
                 <Input
-                  className={cn("py-4 px-6")}
+                  className={cn("py-4 lg:py-6 px-6")}
                   placeholder="First Name"
                   {...field}
                 />
@@ -78,7 +78,7 @@ export default function SignUpForm() {
             <FormItem>
               <FormControl>
                 <Input
-                  className={cn("py-4 px-6")}
+                  className={cn("py-4 lg:py-6 px-6")}
                   placeholder="Last Name"
                   {...field}
                 />
@@ -95,7 +95,7 @@ export default function SignUpForm() {
               <FormControl>
                 <Input
                   type="tel"
-                  className={cn("py-4 px-6")}
+                  className={cn("py-4 lg:py-6 px-6")}
                   placeholder="Phone Number (10 digits)"
                   {...field}
                 />
@@ -112,7 +112,7 @@ export default function SignUpForm() {
               <FormControl>
                 <Input
                   type="email"
-                  className={cn("py-4 px-6")}
+                  className={cn("py-4 lg:py-6 px-6")}
                   placeholder="Email Address"
                   {...field}
                 />
@@ -129,7 +129,7 @@ export default function SignUpForm() {
               <FormControl>
                 <Input
                   type="password"
-                  className={cn("py-4 px-6")}
+                  className={cn("py-4 lg:py-6 px-6")}
                   placeholder="Password"
                   {...field}
                 />
@@ -146,7 +146,7 @@ export default function SignUpForm() {
               <FormControl>
                 <Input
                   type="password"
-                  className={cn("py-4 px-6")}
+                  className={cn("py-4 lg:py-6 px-6")}
                   placeholder="Confirm Password"
                   {...field}
                 />
