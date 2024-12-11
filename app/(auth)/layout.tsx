@@ -7,7 +7,7 @@ export default function OrderLayout(
 ) {
     return (
         <section>
-            <div className='sticky top-0'>
+            <div className='sticky top-0 z-40'>
                 <Header />
             </div>
             <div className='bg-gray-100'>

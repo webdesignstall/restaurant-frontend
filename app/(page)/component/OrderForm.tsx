@@ -48,10 +48,10 @@ export default function OrderForm() {
             <div className='lg:grid grid-cols-5 max-w-6xl m-auto h-full gap-10'>
                 <div className='flex flex-col justify-center items-start col-span-2'>
                     <div className='pb-4'>
-                        <p className='lg:text-6xl text-[2.8rem] font-extrabold text-white font-bebas'>Join The Club</p>
+                        <h2 className='text-white'>Join The Club</h2>
                     </div>
                     <div className='pb-4'>
-                        <p className='text-white text-2xl'>Become a True Insider – Join for news, special offers & more.</p>
+                        <h4 className='text-white'>Become a True Insider – Join for news, special offers & more.</h4>
                     </div>
                 </div>
                 <div className='col-span-3'>

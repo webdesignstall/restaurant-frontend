@@ -32,16 +32,16 @@ export default function MobileNavbar() {
 
     return (
         <div>
-            <div className={`flex justify-between items-center md:hidden bg-gray-100 ${scrollTop > 0 ? 'fixed top-0 left-0 w-full' : 'relative'}`}>
+            <div className={`flex justify-between items-center md:hidden bg-gray-100 ${scrollTop > 0 ? 'fixed top-0 left-0 w-full' : 'relative z-40'}`}>
                 {/* Dynamic Logo Position */}
                 <div
-                    className={`absolute z-30 left-6 transition-all duration-300 ${scrollTop > 0 ? 'top-0 w-16 duration-150' : '-top-8'
+                    className={`absolute z-30 left-6 transition-all duration-300 ${scrollTop > 0 ? 'top-0 w-16 duration-150' : '-top-12'
                         }`}
                 >
                     <Link href='/'>
                         <Image
-                            width={100}
-                            height={100}
+                            width={120}
+                            height={120}
                             src="/logofile.png"
                             alt="Logo"
                         /></Link>
@@ -74,7 +74,7 @@ export default function MobileNavbar() {
                                 transition={{ type: 'spring', stiffness: 70, damping: 15 }}
                             >
                                 {/* Close Icon */}
-                                <div className={` flex justify-end items-center ${scrollTop > 0 ? '' : 'mt-[80px]'}`}>
+                                <div className={` flex justify-end items-center ${scrollTop > 0 ? '' : 'mt-[45px]'}`}>
                                     <div
                                         onClick={() => setNavber(false)}
                                         className="px-4 py-2 cursor-pointer"
@@ -148,20 +148,5 @@ export const navItem = [
         id: 4,
         title: "Group Dining",
         link: '/group-dining'
-    },
-    {
-        id: 6,
-        title: "Gift Cards",
-        link: '/'
-    },
-    {
-        id: 7,
-        title: "Careers",
-        link: '/'
-    },
-    {
-        id: 8,
-        title: "Close menu",
-        link: '/'
     },
 ]

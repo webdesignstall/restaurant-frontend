@@ -1,5 +1,6 @@
-@import "@fontsource/bebas-neue"; 
-@import "@fontsource/roboto"; /* Defaults to 400 weight */
+@import "@fontsource/bebas-neue";
+@import "@fontsource/roboto";
+/* Defaults to 400 weight */
 
 
 @tailwind base;
@@ -52,6 +53,7 @@ body {
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -92,7 +94,28 @@ body {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+}
+
+h1 {
+  @apply text-6xl font-bebas font-bold tracking-wide lg:text-7xl
+}
+
+h2 {
+  @apply text-5xl font-bebas font-bold lg:text-6xl tracking-wide
+}
+
+h3 {
+  @apply text-4xl font-bold tracking-wide font-bebas
+}
+
+h4 {
+  @apply text-2xl font-roboto font-medium lg:text-xl
+}
+
+p {
+  @apply font-roboto
 }

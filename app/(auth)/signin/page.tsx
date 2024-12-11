@@ -41,7 +41,7 @@ export default function SignInForm() {
 
   return (
     <Form {...form}>
-      <form className="max-w-xl m-auto flex flex-col gap-4 h-screen justify-center" onSubmit={form.handleSubmit(onSubmit)}>
+      <form className="max-w-xl m-auto flex flex-col gap-4 h-screen justify-center px-6" onSubmit={form.handleSubmit(onSubmit)}>
         <FormField
           control={form.control}
           name="email"
@@ -49,7 +49,7 @@ export default function SignInForm() {
             <FormItem>
               <FormControl>
                 <Input
-                  className={cn("py-8 px-6")}
+                  className={cn("py-6 lg:py-8 px-6")}
                   placeholder="Email Address"
                   {...field}
                 />
@@ -66,7 +66,7 @@ export default function SignInForm() {
               <FormControl>
                 <Input
                   type="password"
-                  className={cn("py-8 px-6")}
+                  className={cn("py-6 lg:py-8 px-6")}
                   placeholder="Password"
                   {...field}
                 />
@@ -78,7 +78,7 @@ export default function SignInForm() {
         <div className="py-4 w-full">
           <Button
             size="lg"
-            className="w-full py-8 rounded-full text flex text-xl"
+            className="w-full py-6 lg:py-8 rounded-full text flex text-xl"
             type="submit"
           >
             Sign In

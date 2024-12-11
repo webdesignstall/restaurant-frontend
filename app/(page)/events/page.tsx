@@ -5,10 +5,10 @@ export default function Events() {
     return (
         <div>
             <div>
-                <div className='relative flex justify-center items-center h-screen'>
+                <div className='relative flex justify-center items-center lg:h-screen h-[30vh]'>
                     <div className='absolute top-0 left-0 w-full h-full -z-10'>
                         <Image
-                            className='w-full object-cover bg-cover'
+                            className='w-full object-cover bg-cover h-full'
                             width={1000}
                             height={1000}
                             src='/events/Banner.jpg'
@@ -29,7 +29,7 @@ export default function Events() {
                     <div className='mx-6'>
                         <p className='text-center'>Planning your next event? Let us help make it unforgettable! Whether you’re looking to book a small, intimate gathering, a larger corporate event, or even a full restaurant buyout, we’re here to help you celebrate any occasion. With customizable menus and flexible seating arrangements, we ensure every detail is tailored to create a memorable experience for you and your guests.</p>
                         <p className='text-center'>
-                        Ready to reserve your date? Simply fill out the form below, and our team will handle the rest—taking care of the details so you can focus on celebrating!
+                            Ready to reserve your date? Simply fill out the form below, and our team will handle the rest—taking care of the details so you can focus on celebrating!
                         </p>
                     </div>
                 </div>
