@@ -5,7 +5,7 @@ import React from 'react';
 export default function OrderCard() {
     return (
         <div className="px-4 py-16">
-            <div className="grid gap-8 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 max-w-7xl mx-auto">
+            <div className="grid gap-8 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 max-w-7xl 2xl:max-w-screen-2xl mx-auto">
                 {items.map((item, index) => (
                     <div
                         key={index}

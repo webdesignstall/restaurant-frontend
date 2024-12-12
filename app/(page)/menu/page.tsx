@@ -24,7 +24,7 @@ export default function Menu() {
             {
               [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, , 1, 1, 1, 1, 11, 1, 1, 1].map((item, index) => (
                 <Link key={index} href='/menu/item'>
-                  <Card className='rounded-2xl overflow-hidden bg-[#bcbbae80] hover:bg-[#595e4980] duration-300'>
+                  <Card className='rounded-2xl overflow-hidden border-white bg-[#bcbbae80] hover:bg-[#595e4980] duration-300'>
                     <div className='py-10 px-4'>
                       <p className='text-center text-2xl text-wrap font-[500] text-zinc-700 font-roboto'>Starters & Shareables</p>
                     </div>

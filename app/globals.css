@@ -96,12 +96,12 @@ body {
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-white text-black;
   }
 }
 
 h1 {
-  @apply text-6xl font-bebas font-bold tracking-wide lg:text-7xl leading-none
+  @apply text-6xl font-bebas font-bold tracking-wide lg:text-7xl 2xl:text-[5rem] leading-none
 }
 
 h2 {
@@ -113,7 +113,10 @@ h3 {
 }
 
 h4 {
-  @apply text-2xl font-roboto font-medium lg:text-xl
+  @apply text-xl font-roboto font-medium lg:text-xl
+}
+h5{
+  @apply text-xl font-roboto font-medium lg:text-lg
 }
 
 p {

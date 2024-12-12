@@ -1,134 +1,203 @@
-import { Button } from '@/components/ui/button'
-import { Check, ChevronsUpDown } from "lucide-react"
+"use client";
 
-import { cn } from "@/lib/utils"
+import { zodResolver } from "@hookform/resolvers/zod";
+import React from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+import { Button } from "@/components/ui/button";
 import {
-    Command,
-    CommandEmpty,
-    CommandGroup,
-    CommandInput,
-    CommandItem,
-    CommandList,
-} from "@/components/ui/command"
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-} from "@/components/ui/popover"
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Check, ChevronsUpDown } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-const frameworks = [
-    {
-        value: "next.js",
-        label: "Next.js",
-    },
-    {
-        value: "sveltekit",
-        label: "SvelteKit",
-    },
-    {
-        value: "nuxt.js",
-        label: "Nuxt.js",
-    },
-    {
-        value: "remix",
-        label: "Remix",
-    },
-    {
-        value: "astro",
-        label: "Astro",
-    },
-]
-import React from 'react'
+// Restaurant options
+const restaurantOptions = [
+  { value: "new-york", label: "New York" },
+  { value: "los-angeles", label: "Los Angeles" },
+  { value: "chicago", label: "Chicago" },
+  { value: "houston", label: "Houston" },
+  { value: "miami", label: "Miami" },
+];
+
+// Zod schema for validation
+const OrderFormSchema = z.object({
+  firstName: z.string().min(2, { message: "First Name must be at least 2 characters." }),
+  lastName: z.string().min(2, { message: "Last Name must be at least 2 characters." }),
+  email: z.string().email({ message: "Invalid email address." }),
+  phoneNumber: z.string().min(8, { message: "Enter a valid phone number." }),
+  preferredLocation: z.string().nonempty({ message: "Please select a restaurant location." }),
+});
 
 export default function OrderForm() {
-    const [open, setOpen] = React.useState(false)
-    const [value, setValue] = React.useState("")
-    return (
-        <div className='h-fit bg-[#595e48] md:p-10 px-6 py-14 -mt-2 z-20'>
-            <div className='lg:grid grid-cols-5 max-w-6xl m-auto h-full gap-10'>
-                <div className='flex flex-col justify-center items-start col-span-2'>
-                    <div className='pb-4'>
-                        <h2 className='text-white'>Join The Club</h2>
-                    </div>
-                    <div className='pb-4'>
-                        <h4 className='text-white'>Become a True Insider – Join for news, special offers & more.</h4>
-                    </div>
-                </div>
-                <div className='col-span-3'>
-                    <div className='md:grid flex space-y-2 md:space-y-0 flex-col md:grid-cols-2 gap-x-10 gap-y-6'>
-                        <div>
-                            <label className='text-white font-medium text-xl pb-2 pl-3 block' htmlFor="">First Name</label>
-                            <input className='w-full rounded-2xl py-3 px-4' placeholder='First Name' type="text" />
-                        </div>
-                        <div>
-                            <label className='text-white font-medium text-xl pb-2 pl-3 block' htmlFor="">Last name</label>
-                            <input className='w-full rounded-2xl py-3 px-4' placeholder='Last name' type="text" />
-                        </div>
-                        <div>
-                            <label className='text-white font-medium text-xl pb-2 pl-3 block' htmlFor="">Email</label>
-                            <input className='w-full rounded-2xl py-3 px-4' placeholder='Email' type="text" />
-                        </div>
-                        <div>
-                            <label className='text-white font-medium text-xl pb-2 pl-3 block' htmlFor="">Phone number</label>
-                            <input className='w-full rounded-2xl py-3 px-4' placeholder='Phone number' type="text" />
-                        </div>
-                        <div className='col-span-2'>
-                            <label className='text-white font-medium text-xl pb-2 pl-3 block' htmlFor="">Preferred Restaurant Location</label>
-                            <Popover open={open} onOpenChange={setOpen}>
-                                <PopoverTrigger asChild>
-                                    <Button
-                                        variant="outline"
-                                        role="combobox"
-                                        aria-expanded={open}
-                                        className="w-full justify-between rounded-2xl py-4"
-                                    >
-                                        {value
-                                            ? frameworks.find((framework) => framework.value === value)?.label
-                                            : "Select framework..."}
-                                        <ChevronsUpDown className="opacity-50" />
-                                    </Button>
-                                </PopoverTrigger>
-                                <PopoverContent className="w-full p-0">
-                                    <Command>
-                                        <CommandInput placeholder="Search framework..." />
-                                        <CommandList>
-                                            <CommandEmpty>No framework found.</CommandEmpty>
-                                            <CommandGroup>
-                                                {frameworks.map((framework) => (
-                                                    <CommandItem
-                                                        key={framework.value}
-                                                        value={framework.value}
-                                                        onSelect={(currentValue) => {
-                                                            setValue(currentValue === value ? "" : currentValue)
-                                                            setOpen(false)
-                                                        }}
-                                                    >
-                                                        {framework.label}
-                                                        <Check
-                                                            className={cn(
-                                                                "ml-auto",
-                                                                value === framework.value ? "opacity-100" : "opacity-0"
-                                                            )}
-                                                        />
-                                                    </CommandItem>
-                                                ))}
-                                            </CommandGroup>
-                                        </CommandList>
-                                    </Command>
-                                </PopoverContent>
-                            </Popover>
-                        </div>
-                        <div className='col-span-2'>
-                            <p className='text-white'>
-                                By submitting this form and signing up for email marketing and texts, you consent to receive marketing messages (e.g. promos, cart reminders) from True Food Kitchen at the number & email provided, including messages sent by autodialer. Consent is not a condition of purchase. Msg & data rates may apply. Msg frequency varies. Unsubscribe at any time by replying STOP or clicking the unsubscribe link (where available). Privacy Policy & Terms.
-                            </p>
-                        </div>
-                        <div className='col-span-2'>
-                            <Button className='bg-white text-black rounded-full px-8' disabled>Submit</Button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  const [phone, setPhone] = React.useState("");
+  const [location, setLocation] = React.useState("");
+  const [open, setOpen] = React.useState(false);
+
+  const form = useForm<z.infer<typeof OrderFormSchema>>({
+    resolver: zodResolver(OrderFormSchema),
+    defaultValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      phoneNumber: "",
+      preferredLocation: "",
+    },
+  });
+
+  // Form submission handler
+  const onSubmit = (data: z.infer<typeof OrderFormSchema>) => {
+  };
+
+  return (
+    <div className="h-fit bg-[#595e48] md:p-10 px-6 py-14 -mt-2 z-20">
+      <div className="lg:grid grid-cols-5 max-w-6xl m-auto h-full gap-10">
+        <div className="flex flex-col justify-center items-start col-span-2">
+          <h2 className="text-white pb-4">Join The Club</h2>
+          <h5 className="text-white">
+            Become a True Insider – Join for news, special offers & more.
+          </h5>
         </div>
-    )
+
+        <div className="col-span-3">
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              {/* First Name */}
+              <FormField
+                control={form.control}
+                name="firstName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-white">First Name</FormLabel>
+                    <FormControl>
+                      <Input className="bg-white" placeholder="First Name" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* Last Name */}
+              <FormField
+                control={form.control}
+                name="lastName"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-white">Last Name</FormLabel>
+                    <FormControl>
+                      <Input className="bg-white" placeholder="Last Name" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* Email */}
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="text-white">Email</FormLabel>
+                    <FormControl>
+                      <Input className="bg-white" placeholder="Email" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* Phone Number */}
+              <FormItem>
+                <FormLabel className="text-white">Phone Number</FormLabel>
+                <FormControl>
+                  <PhoneInput
+                    country={"us"}
+                    value={phone}
+                    onChange={(value) => setPhone(value)}
+                    inputProps={{
+                      name: "phoneNumber",
+                      required: true,
+                      className: "w-full rounded-2xl py-3 px-4 pl-14 bg-white overflow-hidden",
+                    }}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+
+              {/* Preferred Location */}
+              <FormItem>
+                <FormLabel className="text-white">Preferred Restaurant Location</FormLabel>
+                <Popover open={open} onOpenChange={setOpen}>
+                  <PopoverTrigger asChild>
+                    <Button
+                      variant="outline"
+                      role="combobox"
+                      aria-expanded={open}
+                      className="w-full justify-between rounded-2xl py-4 bg-white hover:bg-white"
+                    >
+                      {location
+                        ? restaurantOptions.find((option) => option.value === location)?.label
+                        : "Select a location..."}
+                      <ChevronsUpDown className="opacity-50" />
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-80 p-0">
+                    <Command>
+                      <CommandInput placeholder="Search location..." />
+                      <CommandList>
+                        <CommandEmpty>No location found.</CommandEmpty>
+                        <CommandGroup>
+                          {restaurantOptions.map((option) => (
+                            <CommandItem
+                              key={option.value}
+                              value={option.value}
+                              onSelect={(currentValue) => {
+                                setLocation(currentValue === location ? "" : currentValue);
+                                setOpen(false);
+                              }}
+                            >
+                              {option.label}
+                              <Check
+                                className={cn(
+                                  "ml-auto",
+                                  location === option.value ? "opacity-100" : "opacity-0"
+                                )}
+                              />
+                            </CommandItem>
+                          ))}
+                        </CommandGroup>
+                      </CommandList>
+                    </Command>
+                  </PopoverContent>
+                </Popover>
+              </FormItem>
+
+              <Button type="submit" className="bg-white text-black rounded-full px-8">
+                Submit
+              </Button>
+            </form>
+          </Form>
+        </div>
+      </div>
+    </div>
+  );
 }
