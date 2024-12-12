@@ -59,7 +59,7 @@ export default function Footer() {
                                 <div><FaFacebookF size={30} /> </div>
                             </div>
                             <div className='text-white text-center w-full lg:text-left'>
-                                © True Food Kitchen | Terms & Privacy | Accessibility Statement
+                                © Soy and Spice | Terms & Privacy | Accessibility Statement
                             </div>
                         </div>
                     </div>
@@ -132,7 +132,7 @@ const items = [
         ]
     },
     {
-        title: 'My true food',
+        title: 'Soy and Spice',
         menu: [
             {
                 title: 'True Insider',

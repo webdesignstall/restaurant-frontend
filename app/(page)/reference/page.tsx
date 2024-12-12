@@ -18,7 +18,7 @@ export default function Reference() {
                         />
                     </div>
                 </div>
-                <div className='py-10 bg-gray-100'>
+                <div className='pt-16 pb-32 bg-gray-100'>
                     <div className='py-6'>
                         <p className='font-roboto text-center text-3xl font-bold tracking-wide'>
                             Reference
