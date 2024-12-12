@@ -35,14 +35,14 @@ export default function MobileNavbar() {
             <div className={`flex justify-between items-center md:hidden bg-gray-100 ${scrollTop > 0 ? 'fixed top-0 left-0 w-full' : 'relative z-40'}`}>
                 {/* Dynamic Logo Position */}
                 <div
-                    className={`absolute z-30 left-6 transition-all duration-300 ${scrollTop > 0 ? 'top-0 w-16 duration-150' : '-top-12'
+                    className={`absolute z-30 left-6 transition-all duration-300 ${scrollTop > 0 ? 'top-0 w-16 duration-150' : 'top-0'
                         }`}
                 >
                     <Link href='/'>
                         <Image
-                            width={120}
-                            height={120}
-                            src="/mainLogo.jpg"
+                            width={80}
+                            height={80}
+                            src="/6258072417504072998.webp"
                             alt="Logo"
                         /></Link>
                 </div>
@@ -104,23 +104,23 @@ export default function MobileNavbar() {
                 </div>
             </div>
             <div className='fixed bottom-0 left-0 h-16 bg-white w-full items-center flex justify-center space-x-3 xl:hidden z-[999] shadow-inner'>
-               <Link href='/order'>
-               
-                <Button className='rounded-3xl px-8 text-gray-200 font-semibold'>
-                    Reservation
-                </Button>
-               </Link>
                 <Link href='/order'>
-                
-                <Button className='rounded-3xl px-8 bg-secondary hover:bg-secondary/80 text-primary font-semibold'>
-                    Order Line
-                </Button>
+
+                    <Button className='rounded-3xl px-8 text-gray-200 font-semibold'>
+                        Reservation
+                    </Button>
                 </Link>
                 <Link href='/order'>
-                
-                <Button className='rounded-3xl px-8 text-gray-200 font-semibold'>
-                    Catering
-                </Button>
+
+                    <Button className='rounded-3xl px-8 bg-secondary hover:bg-secondary/80 text-primary font-semibold'>
+                        Order Line
+                    </Button>
+                </Link>
+                <Link href='/order'>
+
+                    <Button className='rounded-3xl px-8 text-gray-200 font-semibold'>
+                        Catering
+                    </Button>
                 </Link>
             </div>
         </div>
@@ -148,5 +148,10 @@ export const navItem = [
         id: 4,
         title: "Group Dining",
         link: '/group-dining'
+    },
+    {
+        id: 5,
+        title: "Reference",
+        link: '/reference'
     },
 ]
