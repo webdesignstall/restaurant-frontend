@@ -52,11 +52,11 @@ export default function Footer() {
                         </div>
                         <div className='w-full mt-8'>
                             <p className='text-white pb-2 text-center lg:text-left'>Connect With Us</p>
-                            <div className='flex flex-row justify-center items-center lg:justify-start text-white space-x-4 pb-4'>
-                                <div><FaInstagram size={30} /> </div>
-                                <div><FaLinkedin size={30} /> </div>
-                                <div><FaTiktok size={30} /></div>
-                                <div><FaFacebookF size={30} /> </div>
+                            <div className="flex justify-center md:justify-start space-x-4 text-white">
+                                <FaInstagram size={30} className="cursor-pointer hover:opacity-75" />
+                                <FaLinkedin size={30} className="cursor-pointer hover:opacity-75" />
+                                <FaTiktok size={30} className="cursor-pointer hover:opacity-75" />
+                                <FaFacebookF size={30} className="cursor-pointer hover:opacity-75" />
                             </div>
                             <div className='text-white text-center w-full lg:text-left'>
                                 © Soy and Spice | Terms & Privacy | Accessibility Statement
@@ -72,6 +72,23 @@ export default function Footer() {
 
 
 const items = [
+    {
+        title: 'Address',
+        menu: [
+            {
+                title: '123 Street, Pennsylvania, USA',
+                link: '/locations'
+            },
+            {
+                title: '+1 4122927071',
+                link: '/catering'
+            },
+            {
+                title: 'info@greenhomeinitiatives.com',
+                link: '/contact'
+            },
+        ]
+    },
     {
         title: 'Food',
         menu: [
@@ -91,27 +108,6 @@ const items = [
     },
     {
         title: 'About',
-        menu: [
-            {
-                title: 'Locations',
-                link: '/locations'
-            },
-            {
-                title: 'Our Story',
-                link: '/catering'
-            },
-            {
-                title: 'Contact',
-                link: '/contact'
-            },
-            {
-                title: 'Careers',
-                link: '/careers'
-            },
-        ]
-    },
-    {
-        title: 'Address',
         menu: [
             {
                 title: 'Locations',
