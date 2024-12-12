@@ -42,7 +42,7 @@ export default function MobileNavbar() {
                         <Image
                             width={120}
                             height={120}
-                            src="/logofile.png"
+                            src="/mainLogo.jpg"
                             alt="Logo"
                         /></Link>
                 </div>

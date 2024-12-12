@@ -27,12 +27,12 @@ export default function TopNavbar() {
             <div>
                 <div className='hidden md:flex'>
                     <nav className='flex justify-between items-center w-full px-4 relative shadow-lg'>
-                        <div className={`absolute top-0 z-30`}>
+                        <div className={`absolute top-0 left-10 z-30`}>
                             <Link href='/'>
                                 <Image
                                     width={120}
                                     height={120}
-                                    src='/logofile.png'
+                                    src='/mainLogo.jpg'
                                     alt='Logo'
                                 />
                             </Link>

@@ -17,7 +17,7 @@ export default function Truestory() {
             />
           </div>
           <div className='px-6'>
-            <p className='text-center font-bebas text-7xl lg:text-[5rem] font-[900] text-white tracking-wider'>Take Comfort in True Food</p>
+            <p className='text-center font-bebas text-7xl lg:text-[5rem] font-[900] text-white tracking-wider'>Take Comfort in Soy and Spice</p>
           </div>
         </div>
 
