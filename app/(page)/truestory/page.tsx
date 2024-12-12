@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import React from 'react'
 
@@ -63,6 +64,61 @@ export default function Truestory() {
                 </div>
               ))
             }
+          </div>
+        </div>
+        <div className='bg-gray-200'>
+          <div className='grid grid-cols-2 justify-between items-center max-w-7xl m-auto py-14'>
+            <div>
+              <Image
+                className='w-full h-full object-cover bg-cover'
+                width={600}
+                height={600}
+                src='/truestory/Cooking-Chef-25-wide_UP_R1-600x360-1.jpg'
+                alt='Cooking Chef'
+              />
+            </div>
+            <div className='flex flex-col justify-start items-center px-12 gap-6'>
+              <div>
+                <h3 className='text-center'>
+                  INGREDIENT STANDARDS – SEED OILS
+                </h3>
+              </div>
+              <div>
+                <p className='text-center'>
+                  We continuously evolve our culinary standards as we discover more about ingredients and their impacts on our bodies, planet, and more. Last year, we eliminated cooking with seed oils and are proud to exclusively use olive and avocado oil in all 45 restaurants nationwide. We were founded 15 years ago by Dr. Andrew Weil on the idea that great-tasting and nutritious food and thoughtfully crafted beverages can serve as a foundation for a life well lived and we are proud to stand by that today.
+                </p>
+              </div>
+              <div>
+                <Button className='rounded-full px-10 bg-primary'>
+                  Review Full Statement
+                </Button>
+              </div>
+            </div>
+            <div className='border border-dashed border-gray-800 col-span-2 mt-6 p-8 rounded-xl'>
+              <p>
+                “We are on a mission to make it easier for more people to eat more real food. We are focused on using whole or minimally processed ingredients in everything that we make. When it comes to cooking oils, we’ve made the switch to cooking exclusively with olive and avocado oils. Cooking amazing food starts with using the best ingredients possible.”  – John Williams, True Food Kitchen CEO
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className='bg-white'>
+          <div className='grid grid-cols-2 justify-between items-center max-w-7xl m-auto py-14'>
+            <div className='flex flex-col justify-start items-center px-12 gap-6'>
+              <div>
+                <h3 className='text-center'>
+                  sourcing with integrity
+                </h3>
+              </div>
+              <div>
+                <p className='text-center'>
+                  We go to great lengths to source with integrity, partnering only with growers that are committed to the same values that we are. We’re proud to use organic Bianco DiNapoli tomatoes in our sauce. See how the partnership comes to life, right from the farm.
+                </p>
+              </div>
+            </div>
+            <div>
+              <iframe className='w-full h-80' src="https://www.youtube.com/embed/zvi9_eEvLGI?si=uyRS9mfu5U5a6Tz1" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+            </div>
           </div>
         </div>
       </div>

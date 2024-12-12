@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
+import { GroupDiningForm } from './component/eventForm'
 
 export default function GroupDining() {
   return (
@@ -12,7 +13,7 @@ export default function GroupDining() {
                 className='w-full object-cover bg-cover h-full'
                 width={1000}
                 height={1000}
-                src='/truestory/Our-Story-Hero_1515x600.jpg'
+                src='/group/Banner.jpg'
                 alt='baner'
               />
             </div>
@@ -32,21 +33,23 @@ export default function GroupDining() {
             </div>
           </div>
           <div>
-            <div className='md:grid grid-cols-3 gap-6 max-w-6xl m-auto flex flex-col px-4'>
+            <div className='md:grid grid-cols-3 gap-6 max-w-7xl m-auto flex flex-col px-4'>
               {
-                [1, 2, 3].map((item, index) => (
+                items.map((item, index) => (
                   <div key={index} className='w-full'>
                     <div className='w-full h-72 bg-gray-200'>
                       <Image
-                        className='w-full object-cover bg-cover'
+                        className='w-full object-cover bg-cover h-full'
                         width={300}
                         height={300}
-                        src='/group/Catering.jpg'
-                        alt='Group food'
+                        src={item.img}
+                        alt={item.title}
                       />
                     </div>
                     <div className='py-4'>
-                      <p className='text-4xl font-bebas text-center'>Private Events</p>
+                      <h3 className='text-center text-primary'>
+                        {item.title}
+                      </h3>
                     </div>
                   </div>
                 ))
@@ -56,15 +59,42 @@ export default function GroupDining() {
           <div className='pb-12'>
             <div>
               <div className='pt-10'>
-                <p className='font-bebas text-4xl font-bold text-center'>FILL OUT YOUR DETAILS</p>
+                <h2 className='text-center text-primary'>
+                  FILL OUT YOUR DETAILS
+                </h2>
               </div>
             </div>
             <div>
-              {/* form */}
+              <GroupDiningForm />
             </div>
           </div>
+        </div>
+        <div>
+          <Image
+            className='w-full object-cover bg-cover h-72 overflow-hidden flex justify-center items-center'
+            width={1000}
+            height={1000}
+            src='/group/Banner.jpg'
+            alt='baner'
+          />
         </div>
       </div>
     </div>
   )
 }
+
+
+const items = [
+  {
+    title: 'Private Events',
+    img: '/group/Private-Events.jpg'
+  },
+  {
+    title: 'CATERING',
+    img: '/group/Catering.jpg'
+  },
+  {
+    title: 'Group Dining',
+    img: '/group/groupdiningimg.png'
+  },
+]

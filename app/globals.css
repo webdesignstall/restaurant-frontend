@@ -101,7 +101,7 @@ body {
 }
 
 h1 {
-  @apply text-6xl font-bebas font-bold tracking-wide lg:text-7xl
+  @apply text-6xl font-bebas font-bold tracking-wide lg:text-7xl leading-none
 }
 
 h2 {
