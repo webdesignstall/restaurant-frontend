@@ -57,7 +57,7 @@ export default function DeliveryForm() {
                         <FormItem className="col-span-2">
                             <FormControl>
                                 <Input
-                                    className={cn("py-8 px-6")}
+                                    className={cn("py-8 px-6 bg-white")}
                                     placeholder="Delivery Address"
                                     {...field}
                                 />
@@ -73,7 +73,7 @@ export default function DeliveryForm() {
                         <FormItem className="col-span-2">
                             <FormControl>
                                 <Input
-                                    className={cn("py-8 px-6")}
+                                    className={cn("py-8 px-6 bg-white")}
                                     placeholder="Street or Building Address"
                                     {...field}
                                 />
@@ -89,7 +89,7 @@ export default function DeliveryForm() {
                         <FormItem>
                             <FormControl>
                                 <Input
-                                    className={cn("py-8 px-6")}
+                                    className={cn("py-8 px-6 bg-white")}
                                     placeholder="City"
                                     {...field}
                                 />
@@ -105,7 +105,7 @@ export default function DeliveryForm() {
                         <FormItem>
                             <FormControl>
                                 <Input
-                                    className={cn("py-8 px-6")}
+                                    className={cn("py-8 px-6 bg-white")}
                                     placeholder="ZIP Code"
                                     {...field}
                                 />

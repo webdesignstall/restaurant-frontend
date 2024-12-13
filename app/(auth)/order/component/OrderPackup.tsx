@@ -44,7 +44,7 @@ export default function OrderPackup() {
             <FormItem>
               <FormControl>
                 <Input
-                  className={cn("py-8 px-6")}
+                  className={cn("py-8 px-6 bg-white")}
                   placeholder="Search Store, city or Zip"
                   {...field}
                 />

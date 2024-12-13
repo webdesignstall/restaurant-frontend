@@ -39,31 +39,33 @@ export default function TopNavbar() {
                             </Link>
                         </div>
                         <div></div>
-                        <ul className='flex flex-row lg:ml-28 h-20 justify-center items-center'>
-                            {
-                                navItem.map((item, index) => (
-                                    <li className='pr-6' key={index}>
-                                        <Link className={`text-wrap w-fit flex justify-center items-center border-b-2  ${pathName === item.link ? 'border-gray-800' : 'border-white'}`} href={item.link}>{item.title}</Link>
-                                    </li>
-                                ))
-                            }
-                        </ul>
-                        <div className='xl:flex space-x-4 hidden'>
-                            <Link href='/reservation'>
-                                <Button className='rounded-3xl px-8 text-gray-200 font-semibold'>
-                                    Reservation
-                                </Button>
-                            </Link>
-                            <Link href='/order'>
-                                <Button className='rounded-3xl px-8  font-semibold bg-secondary text-primary hover:bg-secondary/80'>
-                                    Order Online
-                                </Button>
-                            </Link>
-                            <Link href='/catering'>
-                                <Button className='rounded-3xl px-8 text-gray-200 font-semibold'>
-                                    Catering
-                                </Button>
-                            </Link>
+                        <div className='flex flex-row justify-center items-center'>
+                            <ul className='flex flex-row lg:ml-28 h-20 justify-center items-center'>
+                                {
+                                    navItem.map((item, index) => (
+                                        <li className='pr-6 xl:pr-10' key={index}>
+                                            <Link className={`text-wrap w-fit flex justify-center items-center border-b-2  ${pathName === item.link ? 'border-gray-800' : 'border-white'}`} href={item.link}>{item.title}</Link>
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                            <div className='xl:flex space-x-4 hidden'>
+                                <Link href='/reservation'>
+                                    <Button className='rounded-3xl px-8 text-gray-200 font-semibold'>
+                                        Reservation
+                                    </Button>
+                                </Link>
+                                <Link href='/order'>
+                                    <Button className='rounded-3xl px-8  font-semibold bg-secondary text-primary hover:bg-secondary/80'>
+                                        Order Online
+                                    </Button>
+                                </Link>
+                                <Link href='/catering'>
+                                    <Button className='rounded-3xl px-8 text-gray-200 font-semibold'>
+                                        Catering
+                                    </Button>
+                                </Link>
+                            </div>
                         </div>
                     </nav>
                 </div>
@@ -99,7 +101,7 @@ export const navItem = [
     },
     {
         id: 5,
-        title: "Reference",
-        link: '/reference'
+        title: "References",
+        link: '/references'
     },
 ]

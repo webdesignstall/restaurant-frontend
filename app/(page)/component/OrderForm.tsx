@@ -79,7 +79,7 @@ export default function OrderForm() {
 
         <div className="col-span-3">
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-2 gap-4">
               {/* First Name */}
               <FormField
                 control={form.control}
@@ -88,7 +88,7 @@ export default function OrderForm() {
                   <FormItem>
                     <FormLabel className="text-white">First Name</FormLabel>
                     <FormControl>
-                      <Input className="bg-white" placeholder="First Name" {...field} />
+                      <Input className="bg-white rounded-2xl" placeholder="First Name" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -103,7 +103,7 @@ export default function OrderForm() {
                   <FormItem>
                     <FormLabel className="text-white">Last Name</FormLabel>
                     <FormControl>
-                      <Input className="bg-white" placeholder="Last Name" {...field} />
+                      <Input className="bg-white rounded-2xl" placeholder="Last Name" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -118,7 +118,7 @@ export default function OrderForm() {
                   <FormItem>
                     <FormLabel className="text-white">Email</FormLabel>
                     <FormControl>
-                      <Input className="bg-white" placeholder="Email" {...field} />
+                      <Input className="bg-white rounded-2xl" placeholder="Email" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -144,7 +144,7 @@ export default function OrderForm() {
               </FormItem>
 
               {/* Preferred Location */}
-              <FormItem>
+              <FormItem className="col-span-2">
                 <FormLabel className="text-white">Preferred Restaurant Location</FormLabel>
                 <Popover open={open} onOpenChange={setOpen}>
                   <PopoverTrigger asChild>
@@ -152,7 +152,7 @@ export default function OrderForm() {
                       variant="outline"
                       role="combobox"
                       aria-expanded={open}
-                      className="w-full justify-between rounded-2xl py-4 bg-white hover:bg-white"
+                      className="w-full justify-between rounded-2xl overflow-hidden py-4 bg-white hover:bg-white"
                     >
                       {location
                         ? restaurantOptions.find((option) => option.value === location)?.label
@@ -191,9 +191,17 @@ export default function OrderForm() {
                 </Popover>
               </FormItem>
 
+              <div className="col-span-2">
+                <p className="text-white">
+                By submitting this form and signing up for email marketing and texts, you consent to receive marketing messages (e.g. promos, cart reminders) from Soy and Spice at the number & email provided, including messages sent by autodialer. Consent is not a condition of purchase. Msg & data rates may apply. Msg frequency varies. Unsubscribe at any time by replying STOP or clicking the unsubscribe link (where available). Privacy Policy & Terms.
+                </p>
+              </div>
+
+              <div className="col-span-2">
               <Button type="submit" className="bg-white text-black rounded-full px-8">
                 Submit
               </Button>
+              </div>
             </form>
           </Form>
         </div>
