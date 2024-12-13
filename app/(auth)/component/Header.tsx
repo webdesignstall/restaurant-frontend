@@ -19,8 +19,8 @@ export default function Header() {
     const items = [
         { title: 'Order', link: '/order' },
         { title: 'Location', link: '/location' },
-        { title: 'Sign in', link: '/signin' },
-        { title: 'Join Now', link: '/signup' },
+        { title: 'Sign in', link: '/account/signin' },
+        { title: 'Join Now', link: '/account/signup' },
     ];
 
     return (
