@@ -41,7 +41,7 @@ export default function SignInForm() {
 
   return (
     <Form {...form}>
-      <form className="max-w-xl m-auto flex flex-col gap-4 h-96 justify-center px-6" onSubmit={form.handleSubmit(onSubmit)}>
+      <form className="max-w-xl m-auto flex flex-col gap-4 h-[30rem] justify-center px-6" onSubmit={form.handleSubmit(onSubmit)}>
         <FormField
           control={form.control}
           name="email"

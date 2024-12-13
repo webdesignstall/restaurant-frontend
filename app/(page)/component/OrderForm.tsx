@@ -79,7 +79,7 @@ export default function OrderForm() {
 
         <div className="col-span-3">
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="grid grid-cols-2 gap-4">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="md:grid flex flex-col grid-cols-2 gap-4">
               {/* First Name */}
               <FormField
                 control={form.control}

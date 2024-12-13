@@ -47,7 +47,7 @@ export function ReservationForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="max-w-md m-auto space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="md:max-w-md m-auto space-y-6 px-6 md:px-0">
         <FormField
           control={form.control}
           name="restaurant"

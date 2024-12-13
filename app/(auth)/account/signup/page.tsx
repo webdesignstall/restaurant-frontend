@@ -54,7 +54,7 @@ export default function SignUpForm() {
 
   return (
     <Form {...form}>
-      <form className="max-w-xl m-auto flex flex-col gap-4 h-screen justify-center" onSubmit={form.handleSubmit(onSubmit)}>
+      <form className="max-w-xl px-6 md:px-0 m-auto flex flex-col gap-4 h-fit py-8 justify-center" onSubmit={form.handleSubmit(onSubmit)}>
         <FormField
           control={form.control}
           name="firstName"

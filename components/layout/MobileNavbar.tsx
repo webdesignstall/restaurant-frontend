@@ -104,20 +104,17 @@ export default function MobileNavbar() {
                 </div>
             </div>
             <div className='fixed bottom-0 left-0 h-16 bg-white w-full items-center flex justify-center space-x-3 xl:hidden z-[999] shadow-inner'>
-                <Link href='/order'>
-
+                <Link href='/reservation'>
                     <Button className='rounded-3xl px-8 text-gray-200 font-semibold'>
                         Reservation
                     </Button>
                 </Link>
                 <Link href='/order'>
-
                     <Button className='rounded-3xl px-8 bg-secondary hover:bg-secondary/80 text-primary font-semibold'>
                         Order Line
                     </Button>
                 </Link>
-                <Link href='/order'>
-
+                <Link href='/catering'>
                     <Button className='rounded-3xl px-8 text-gray-200 font-semibold'>
                         Catering
                     </Button>
