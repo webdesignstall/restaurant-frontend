@@ -10,14 +10,14 @@ export default function AccountLayout(
     const pathName = usePathname()
     return (
         <section>
-            <header className='h-72 flex flex-col justify-between items-center bg-white'>
+            <header className='h-72 flex flex-col px-6 justify-between items-center bg-white'>
                 <div className='pt-16'>
-                    <h2>
+                    <h2 className='text-center'>
                         my true insider account
                     </h2>
                 </div>
                 <div>
-                    <p>
+                    <p className='text-center'>
                         Create a True Insider account and get exclusive access to health & wellness insights, limited-time offers, special culinary experiences, and exclusive True Food swag.
                     </p>
                 </div>

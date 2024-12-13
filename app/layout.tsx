@@ -32,12 +32,7 @@ export default function RootLayout({
         className={`${roboto.className} antialiased`}
       >
         <Toaster richColors />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-        >
-          {children}
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );

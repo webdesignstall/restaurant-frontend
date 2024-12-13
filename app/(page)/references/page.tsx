@@ -28,9 +28,9 @@ export default function Reference() {
                         {
                             [1, 2, 3].map((item, index) => (
                                 <Link key={index} href='https://greenhomeinitiatives.com/files/sc.pdf'>
-                                    <Card className='border-none cursor-pointer shadow-sm'>
+                                    <Card className='border-none cursor-pointer shadow-sm bg-white'>
                                         <CardHeader>
-                                            <CardTitle>
+                                            <CardTitle className='text-primary'>
                                                 Workers Cited
                                             </CardTitle>
                                         </CardHeader>
