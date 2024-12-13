@@ -3,14 +3,14 @@ import React from 'react';
 
 const items = [
   {
-    title: 'Find A True Food Kitchen',
-    desc: 'True Food Kitchen is rooted in scientific principles, ensuring that every irresistible dish and beverage contributes to enhancing the longevity of both people and the planet.',
+    title: 'Find A Soy and Spice',
+    desc: 'Soy and Spice is rooted in scientific principles, ensuring that every irresistible dish and beverage contributes to enhancing the longevity of both people and the planet.',
     img: '/23_Homepage_ImageStrip_400x313-1.jpg',
     buttonText: 'Find Us',
   },
   {
     title: 'Savor Every Bite',
-    desc: 'At True Food Kitchen, our menu is carefully crafted so that every bite and every refreshing sip serve up big flavor, an abundance of fresh ingredients and a taste of the unexpected.',
+    desc: 'At Soy and Spice, our menu is carefully crafted so that every bite and every refreshing sip serve up big flavor, an abundance of fresh ingredients and a taste of the unexpected.',
     img: '/Home_Menu.jpg',
     buttonText: 'Learn More',
   },

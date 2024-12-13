@@ -69,7 +69,7 @@ export function GroupDiningForm() {
   return (
     <div className="p-4 md:p-8 max-w-lg mx-auto">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
           <FormField
             control={form.control}
             name="firstName"
@@ -81,7 +81,7 @@ export function GroupDiningForm() {
                     type="text"
                     {...field}
                     placeholder="Enter your first name"
-                    className="input"
+                    className="input bg-white"
                   />
                 </FormControl>
                 <FormMessage />
@@ -100,7 +100,7 @@ export function GroupDiningForm() {
                     type="text"
                     {...field}
                     placeholder="Enter your last name"
-                    className="input"
+                    className="input bg-white"
                   />
                 </FormControl>
                 <FormMessage />
@@ -119,7 +119,7 @@ export function GroupDiningForm() {
                     type="email"
                     {...field}
                     placeholder="Enter your email"
-                    className="input"
+                    className="input bg-white"
                   />
                 </FormControl>
                 <FormMessage />
@@ -138,7 +138,7 @@ export function GroupDiningForm() {
                     type="tel"
                     {...field}
                     placeholder="Enter your phone number"
-                    className="input"
+                    className="input bg-white"
                   />
                 </FormControl>
                 <FormMessage />
@@ -157,7 +157,7 @@ export function GroupDiningForm() {
                     type="number"
                     {...field}
                     placeholder="Enter number of people"
-                    className="input"
+                    className="input bg-white"
                   />
                 </FormControl>
                 <FormMessage />
@@ -172,7 +172,7 @@ export function GroupDiningForm() {
               <FormItem>
                 <FormLabel>Event Type</FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
-                  <FormControl>
+                  <FormControl className="bg-white">
                     <SelectTrigger aria-label="Select event type">
                       <SelectValue placeholder="Select event type" />
                     </SelectTrigger>
@@ -200,7 +200,7 @@ export function GroupDiningForm() {
                     <FormControl>
                       <Button
                         variant="outline"
-                        className="w-full pl-3 text-left font-normal"
+                        className="w-full pl-3 text-left font-normal bg-white"
                       >
                         {field.value ? format(field.value, "PPP") : <span>Pick a date</span>}
                         <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
@@ -235,7 +235,7 @@ export function GroupDiningForm() {
                     type="time"
                     {...field}
                     placeholder="Enter start time"
-                    className="input"
+                    className="input bg-white"
                   />
                 </FormControl>
                 <FormMessage />
@@ -254,7 +254,7 @@ export function GroupDiningForm() {
                     type="time"
                     {...field}
                     placeholder="Enter end time"
-                    className="input"
+                    className="input bg-white"
                   />
                 </FormControl>
                 <FormMessage />
@@ -272,7 +272,7 @@ export function GroupDiningForm() {
                   <Textarea
                     {...field}
                     placeholder="Provide additional details about your event"
-                    className="textarea"
+                    className="textarea bg-white"
                   />
                 </FormControl>
                 <FormMessage />
@@ -290,7 +290,7 @@ export function GroupDiningForm() {
                   <Textarea
                     {...field}
                     placeholder="Let us know how you heard about us"
-                    className="textarea"
+                    className="textarea bg-white"
                   />
                 </FormControl>
                 <FormMessage />
@@ -308,7 +308,7 @@ export function GroupDiningForm() {
                   <Textarea
                     {...field}
                     placeholder="Add any additional information here"
-                    className="textarea"
+                    className="textarea bg-white"
                   />
                 </FormControl>
                 <FormMessage />

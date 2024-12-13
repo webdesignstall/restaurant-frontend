@@ -29,7 +29,7 @@ export default function Header() {
             <div className='h-20 bg-white w-full lg:flex justify-between items-center flex-row px-10 hidden'>
                 <div className='mt-10'>
                     <Link href='/'>
-                        <Image width={120} height={120} src='/mainLogo.jpg' alt='Logo' />
+                        <Image width={120} height={120} src='/6258072417504072998.webp' alt='Logo' />
                     </Link>
                 </div>
                 <div className='hidden lg:flex'>
@@ -61,25 +61,25 @@ export default function Header() {
 
             {/* Mobile Navbar */}
             <div className='lg:hidden'>
-                <div className='flex flex-row justify-between items-center px-8 h-20 bg-[#f8f6dd]'>
+                <div className='flex flex-row justify-between items-center px-8 h-20 bg-primary'>
                     <div
                         className='cursor-pointer'
                         onClick={() => setNavbar(!navbar)}
                     >
                         <div className='flex flex-col justify-center items-center'>
-                            <div className='border-b-2 w-8 pt-0 border-black'></div>
-                            <div className='border-b-2 w-8 pt-2 border-black'></div>
-                            <div className='border-b-2 w-8 pt-2 border-black'></div>
+                            <div className='border-b-2 w-8 pt-0 border-b-white'></div>
+                            <div className='border-b-2 w-8 pt-2 border-b-white'></div>
+                            <div className='border-b-2 w-8 pt-2 border-b-white'></div>
                         </div>
                     </div>
                     <div>
                         <Link href='/'>
-                            <Image width={70} height={70} src='/mainLogo.jpg' alt='Logo' />
+                            <Image width={70} height={70} src='/6258072417504072998.webp' alt='Logo' />
                         </Link>
                     </div>
                     <div>
                         <Link href='/order'>
-                            <ShoppingBag size={30} />
+                            <ShoppingBag className='text-white' size={30} />
                         </Link>
                     </div>
                 </div>
@@ -94,12 +94,12 @@ export default function Header() {
                         transition={{ duration: 0.5 }}
                     >
                         <div className='relative'>
-                            <div className='h-56 bg-[#f8f6dd] flex flex-col justify-center items-center'>
+                            <div className='h-56 bg-primary flex flex-col justify-center items-center'>
                                 <Link href='/'>
                                     <Image
                                         width={120}
                                         height={120}
-                                        src='/mainLogo.jpg'
+                                        src='/6258072417504072998.webp'
                                         alt='Logo'
                                     />
                                 </Link>
@@ -108,15 +108,15 @@ export default function Header() {
                                 className='absolute top-5 right-5'
                                 onClick={() => setNavbar(false)}
                             >
-                                <X size={30} />
+                                <X className='text-white' size={30} />
                             </button>
                             <ul className='flex flex-col gap-6 mt-6 items-center'>
                                 {items.map((item, index) => (
                                     <li key={index}>
                                         <Link
-                                            className={`font-medium text-lg ${index === 2
-                                                ? 'border-2 px-6 py-2 border-primary hover:bg-primary/10 rounded-full'
-                                                : 'px-6 py-2'
+                                            className={`font-medium text-2xl ${index === 2
+                                                ? 'border-2 px-12 py-2 border-primary hover:bg-primary/10 rounded-full'
+                                                : 'px-12 py-2'
                                                 } ${index === 3
                                                     ? 'bg-primary text-white hover:bg-primary/80 rounded-full'
                                                     : ''
