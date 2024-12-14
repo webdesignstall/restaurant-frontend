@@ -25,6 +25,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { cn } from "@/lib/utils";
 
 const FormSchema = z.object({
   firstName: z.string().nonempty({ message: "First name is required." }),
@@ -68,20 +69,48 @@ export function GroupDiningForm() {
 
   return (
     <div className="p-4 md:p-8 max-w-lg mx-auto">
+      <div>
+        <p className="text-2xl font-semibold py-4">
+          Restaurant Location
+        </p>
+      </div>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+          <FormField
+            control={form.control}
+            name="eventType"
+            render={({ field }) => (
+              <FormItem>
+
+                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <FormControl className="bg-white border-gray-800 focus-visible:ring-offset-0 py-6">
+                    <SelectTrigger aria-label="Select event type " className={cn('font-semibold')}>
+                      <SelectValue placeholder="Select an option" className={cn('font-semibold')} />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    <SelectItem value="birthday">Birthday</SelectItem>
+                    <SelectItem value="wedding">Wedding</SelectItem>
+                    <SelectItem value="corporate">Corporate Event</SelectItem>
+                    <SelectItem value="other">Other</SelectItem>
+                  </SelectContent>
+                </Select>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
           <FormField
             control={form.control}
             name="firstName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>First Name</FormLabel>
+
                 <FormControl>
                   <Input
                     type="text"
                     {...field}
-                    placeholder="Enter your first name"
-                    className="input bg-white"
+                    placeholder="first name"
+                    className="input bg-white capitalize py-6 border-gray-800 font-semibold text-md lg:text-md focus-visible:ring-offset-0"
                   />
                 </FormControl>
                 <FormMessage />
@@ -94,13 +123,13 @@ export function GroupDiningForm() {
             name="lastName"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Last Name</FormLabel>
+
                 <FormControl>
                   <Input
                     type="text"
                     {...field}
-                    placeholder="Enter your last name"
-                    className="input bg-white"
+                    placeholder="last name"
+                    className="input bg-white capitalize py-6 border-gray-800 font-semibold text-md lg:text-md focus-visible:ring-offset-0"
                   />
                 </FormControl>
                 <FormMessage />
@@ -113,13 +142,13 @@ export function GroupDiningForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+
                 <FormControl>
                   <Input
                     type="email"
                     {...field}
-                    placeholder="Enter your email"
-                    className="input bg-white"
+                    placeholder="email"
+                    className="input bg-white capitalize py-6 border-gray-800 font-semibold text-md lg:text-md focus-visible:ring-offset-0"
                   />
                 </FormControl>
                 <FormMessage />
@@ -132,13 +161,13 @@ export function GroupDiningForm() {
             name="phone"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Phone Number</FormLabel>
+
                 <FormControl>
                   <Input
                     type="tel"
                     {...field}
-                    placeholder="Enter your phone number"
-                    className="input bg-white"
+                    placeholder="phone number"
+                    className="input bg-white capitalize py-6 border-gray-800 font-semibold text-md lg:text-md focus-visible:ring-offset-0"
                   />
                 </FormControl>
                 <FormMessage />
@@ -151,13 +180,13 @@ export function GroupDiningForm() {
             name="numberOfPeople"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Number of People</FormLabel>
+
                 <FormControl>
                   <Input
                     type="number"
                     {...field}
                     placeholder="Enter number of people"
-                    className="input bg-white"
+                    className="input bg-white capitalize py-6 border-gray-800 font-semibold text-md lg:text-md focus-visible:ring-offset-0"
                   />
                 </FormControl>
                 <FormMessage />
@@ -170,9 +199,9 @@ export function GroupDiningForm() {
             name="eventType"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Event Type</FormLabel>
+
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
-                  <FormControl className="bg-white">
+                  <FormControl className="bg-white border-gray-800 focus-visible:ring-offset-0 py-6">
                     <SelectTrigger aria-label="Select event type">
                       <SelectValue placeholder="Select event type" />
                     </SelectTrigger>
@@ -194,10 +223,10 @@ export function GroupDiningForm() {
             name="eventDate"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Event Date</FormLabel>
+
                 <Popover>
                   <PopoverTrigger asChild>
-                    <FormControl>
+                    <FormControl className="border-gray-800 py-6">
                       <Button
                         variant="outline"
                         className="w-full pl-3 text-left font-normal bg-white"
@@ -210,7 +239,7 @@ export function GroupDiningForm() {
                   <PopoverContent className="w-auto p-0" align="start">
                     <Calendar
                       mode="single"
-                    //   selected={field.value}
+                      //   selected={field.value}
                       onSelect={field.onChange}
                       disabled={(date) =>
                         date > new Date() || date < new Date("1900-01-01")
@@ -229,13 +258,13 @@ export function GroupDiningForm() {
             name="eventStartTime"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Event Start Time</FormLabel>
+
                 <FormControl>
                   <Input
                     type="time"
                     {...field}
                     placeholder="Enter start time"
-                    className="input bg-white"
+                    className="input bg-white capitalize py-6 border-gray-800 font-semibold text-md lg:text-md focus-visible:ring-offset-0"
                   />
                 </FormControl>
                 <FormMessage />
@@ -248,13 +277,13 @@ export function GroupDiningForm() {
             name="eventEndTime"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Event End Time</FormLabel>
+
                 <FormControl>
                   <Input
                     type="time"
                     {...field}
                     placeholder="Enter end time"
-                    className="input bg-white"
+                    className="input bg-white capitalize py-6 border-gray-800 font-semibold text-md lg:text-md focus-visible:ring-offset-0"
                   />
                 </FormControl>
                 <FormMessage />
@@ -267,12 +296,12 @@ export function GroupDiningForm() {
             name="eventDetails"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Event Details</FormLabel>
+
                 <FormControl>
                   <Textarea
                     {...field}
                     placeholder="Provide additional details about your event"
-                    className="textarea bg-white"
+                    className="textarea bg-white text-lg focus-visible:ring-offset-0 border-gray-800"
                   />
                 </FormControl>
                 <FormMessage />
@@ -285,12 +314,12 @@ export function GroupDiningForm() {
             name="howDidYouHear"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>How Did You Hear About Us?</FormLabel>
+
                 <FormControl>
                   <Textarea
                     {...field}
                     placeholder="Let us know how you heard about us"
-                    className="textarea bg-white"
+                    className="textarea bg-white text-lg focus-visible:ring-offset-0 border-gray-800"
                   />
                 </FormControl>
                 <FormMessage />
@@ -303,12 +332,12 @@ export function GroupDiningForm() {
             name="anythingElse"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Anything Else?</FormLabel>
+
                 <FormControl>
                   <Textarea
                     {...field}
                     placeholder="Add any additional information here"
-                    className="textarea bg-white"
+                    className="textarea bg-white text-lg focus-visible:ring-offset-0 border-gray-800"
                   />
                 </FormControl>
                 <FormMessage />
