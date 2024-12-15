@@ -3,8 +3,8 @@ import "./globals.css";
 import { Roboto } from 'next/font/google';
 import { Toaster } from 'sonner'
 import { ThemeProvider } from "@/components/theme-provider";
-
-
+import {ClerkProvider, SignedIn, SignedOut, SignInButton, UserButton} from "@clerk/nextjs";
+import React from "react";
 
 const roboto = Roboto({
   subsets: ['latin'], // Specify the character subsets you need
@@ -27,13 +27,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${roboto.className} antialiased`}
-      >
-        <Toaster richColors />
-        {children}
-      </body>
-    </html>
+      <ClerkProvider>
+        <html lang="en">
+          <body
+            className={`${roboto.className} antialiased`}
+          >
+            <Toaster richColors />
+            {children}
+          </body>
+        </html>
+      </ClerkProvider>
   );
 }
