@@ -9,10 +9,16 @@ const config: Config = {
   ],
   theme: {
   	extend: {
-		fontFamily: {
-			bebas: ['"Bebas Neue"', 'sans-serif'],
-			roboto: ['Roboto', 'serif'],
-		},
+  		fontFamily: {
+  			bebas: [
+  				'Bebas Neue"',
+  				'sans-serif'
+  			],
+  			roboto: [
+  				'Roboto',
+  				'serif'
+  			]
+  		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
