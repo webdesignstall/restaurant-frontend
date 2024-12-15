@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import MobileNavbar from './MobileNavbar'
+import {SignedIn, SignedOut, SignInButton, UserButton} from "@clerk/nextjs";
 
 export default function TopNavbar() {
     const [scrollTop, setScrollTop] = useState(0);
@@ -50,6 +51,7 @@ export default function TopNavbar() {
                                 }
                             </ul>
                             <div className='xl:flex space-x-4 hidden'>
+
                                 <Link href='/reservation'>
                                     <Button className='rounded-3xl px-8 text-gray-200 font-semibold'>
                                         Reservation
@@ -65,6 +67,14 @@ export default function TopNavbar() {
                                         Catering
                                     </Button>
                                 </Link>
+
+                                <SignedOut>
+                                    <SignInButton />
+                                </SignedOut>
+                                <SignedIn>
+                                    <UserButton />
+                                </SignedIn>
+
                             </div>
                         </div>
                     </nav>

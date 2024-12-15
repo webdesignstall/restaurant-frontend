@@ -5,6 +5,7 @@ import Link from 'next/link'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (
+
         <div>
             <div>
                 <div className="text-center w-full text-gray-900 font-medium tracking-wide text-[15px] py-2.5 bg-[#FFA014]">
@@ -19,5 +20,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <div><Footer /> </div>
             </div>
         </div>
+
     )
 }
