@@ -68,20 +68,20 @@ export default function AddCategoryForm() {
   return (
     <div className="border mt-6">
       <div className="border-b py-3 px-4 text-lg font-semibold">Add Category</div>
-      <div className="p-4 sm:p-8 max-w-2xl">
+      <div className="p-4 sm:p-8 max-w-md">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
-            className="space-y-2"
+            className="space-y-4"
           >
             {/* Category Name */}
             <FormField
               control={form.control}
               name="categoryName"
               render={({ field }) => (
-                <FormItem className="grid grid-cols-3 justify-center items-center">
-                  <FormLabel className="font-semibold">Category Name</FormLabel>
-                  <FormControl className="col-span-2">
+                <FormItem>
+                  <FormLabel>Category Name</FormLabel>
+                  <FormControl>
                     <Input placeholder="Enter category name" {...field} />
                   </FormControl>
                   <FormMessage />
@@ -94,10 +94,10 @@ export default function AddCategoryForm() {
               control={form.control}
               name="parentCategory"
               render={({ field }) => (
-                <FormItem className="grid grid-cols-3 justify-center items-center">
-                  <FormLabel className="font-semibold">Parent Category</FormLabel>
+                <FormItem>
+                  <FormLabel>Parent Category</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <FormControl className="col-span-2">
+                    <FormControl>
                       <SelectTrigger>
                         <SelectValue placeholder="Select a parent category" />
                       </SelectTrigger>
@@ -119,26 +119,24 @@ export default function AddCategoryForm() {
               control={form.control}
               name="image"
               render={({ field }) => (
-                <FormItem className="grid grid-cols-3 justify-center items-center">
-                  <FormLabel className="font-semibold">Image</FormLabel>
-                  <div className="col-span-2">
-                    <FormControl >
-                      <Input
-                        type="file"
-                        accept="image/*"
-                        onChange={(e) => handleImageChange(e)}
+                <FormItem>
+                  <FormLabel>Image</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="file"
+                      accept="image/*"
+                      onChange={(e) => handleImageChange(e)}
+                    />
+                  </FormControl>
+                  {imagePreview && (
+                    <div className="mt-2">
+                      <img
+                        src={imagePreview}
+                        alt="Preview"
+                        className="h-32 w-32 object-cover rounded-md border"
                       />
-                    </FormControl>
-                    {imagePreview && (
-                      <div className="mt-2">
-                        <img
-                          src={imagePreview}
-                          alt="Preview"
-                          className="h-32 w-32 object-cover rounded-md border"
-                        />
-                      </div>
-                    )}
-                  </div>
+                    </div>
+                  )}
                   <FormMessage />
                 </FormItem>
               )}
@@ -149,10 +147,10 @@ export default function AddCategoryForm() {
               control={form.control}
               name="status"
               render={({ field }) => (
-                <FormItem className="grid grid-cols-3 justify-center items-center">
-                  <FormLabel className="font-semibold">Status</FormLabel>
+                <FormItem>
+                  <FormLabel>Status</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <FormControl className="col-span-2">
+                    <FormControl>
                       <SelectTrigger>
                         <SelectValue placeholder="Select status" />
                       </SelectTrigger>
