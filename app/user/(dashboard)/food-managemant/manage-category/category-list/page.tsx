@@ -47,12 +47,11 @@ export default function CategoryList() {
     <Table className=" mt-6 border">
       <TableCaption>A list of all categories in the system.</TableCaption>
       <TableHeader>
-        <TableRow className="bg-gray-100">
+        <TableRow>
           <TableHead className="w-[50px]">ID</TableHead>
           <TableHead>Name</TableHead>
           <TableHead>Parent Category</TableHead>
-          <TableHead>Status</TableHead>
-          <TableHead>Action</TableHead>
+          <TableHead className="text-right">Status</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
@@ -61,7 +60,7 @@ export default function CategoryList() {
             <TableCell className="font-medium">{category.id}</TableCell>
             <TableCell>{category.name}</TableCell>
             <TableCell>{category.parent}</TableCell>
-            <TableCell>{category.status}</TableCell>
+            <TableCell className="text-right">{category.status}</TableCell>
           </TableRow>
         ))}
       </TableBody>

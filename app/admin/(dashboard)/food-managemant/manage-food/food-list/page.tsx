@@ -1,83 +1,94 @@
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableFooter,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table"
+"use client"
+
+import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 const foods = [
   {
     id: "1",
-    name: "Pizza",
+    image: "pizza.jpg",
     category: "Fast Food",
-    price: "$12.99",
-    status: "Available",
+    foodName: "Pizza",
+    components: "Cheese, Tomato, Crust",
+    vat: "5%",
+    status: "Active",
   },
   {
     id: "2",
-    name: "Burger",
+    image: "burger.jpg",
     category: "Fast Food",
-    price: "$8.99",
-    status: "Available",
+    foodName: "Burger",
+    components: "Bun, Patty, Lettuce",
+    vat: "5%",
+    status: "Active",
   },
   {
     id: "3",
-    name: "Pasta",
+    image: "pasta.jpg",
     category: "Italian",
-    price: "$10.50",
-    status: "Unavailable",
+    foodName: "Pasta",
+    components: "Penne, Sauce, Cheese",
+    vat: "10%",
+    status: "Inactive",
   },
   {
     id: "4",
-    name: "Sushi",
+    image: "sushi.jpg",
     category: "Japanese",
-    price: "$15.00",
-    status: "Available",
+    foodName: "Sushi",
+    components: "Rice, Fish, Seaweed",
+    vat: "15%",
+    status: "Active",
   },
   {
     id: "5",
-    name: "Salad",
+    image: "salad.jpg",
     category: "Healthy",
-    price: "$6.99",
-    status: "Available",
+    foodName: "Salad",
+    components: "Lettuce, Tomato, Cucumber",
+    vat: "5%",
+    status: "Active",
   },
-]
+];
 
-export default function FoodList() {
+export default function FoodTable() {
   return (
     <Table className="mt-6 border">
       <TableCaption>A list of all food items in the system.</TableCaption>
       <TableHeader>
         <TableRow>
-          <TableHead className="w-[50px]">ID</TableHead>
-          <TableHead>Name</TableHead>
+          <TableHead className="w-[50px]">Image</TableHead>
           <TableHead>Category</TableHead>
-          <TableHead className="text-right">Price</TableHead>
-          <TableHead className="text-right">Status</TableHead>
+          <TableHead>Food Name</TableHead>
+          <TableHead>Component</TableHead>
+          <TableHead>VAT</TableHead>
+          <TableHead>Status</TableHead>
+          <TableHead>Action</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         {foods.map((food) => (
           <TableRow key={food.id}>
-            <TableCell className="font-medium">{food.id}</TableCell>
-            <TableCell>{food.name}</TableCell>
+            <TableCell>
+              <img src={food.image} alt={food.foodName} className="w-12 h-12 object-cover rounded" />
+            </TableCell>
             <TableCell>{food.category}</TableCell>
-            <TableCell className="text-right">{food.price}</TableCell>
-            <TableCell className="text-right">{food.status}</TableCell>
+            <TableCell>{food.foodName}</TableCell>
+            <TableCell>{food.components}</TableCell>
+            <TableCell>{food.vat}</TableCell>
+            <TableCell>{food.status}</TableCell>
+            <TableCell>
+              <button className="text-blue-500 hover:underline">Edit</button> | <button className="text-red-500 hover:underline">Delete</button>
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>
       <TableFooter>
         <TableRow>
-          <TableCell colSpan={5} className="text-center font-semibold">
+          <TableCell colSpan={7} className="text-center font-semibold">
             Total Foods: {foods.length}
           </TableCell>
         </TableRow>
       </TableFooter>
     </Table>
-  )
+  );
 }
