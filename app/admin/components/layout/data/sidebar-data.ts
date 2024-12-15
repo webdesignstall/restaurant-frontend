@@ -107,6 +107,14 @@ export const sidebarData: SidebarData = {
               title: "Pending Order",
               url: "/admin/food-managemant/manage-order/pending-order",
             },
+            {
+              title: "Complete Order",
+              url: "/admin/food-managemant/manage-order/complete-order",
+            },
+            {
+              title: "Cancel Order",
+              url: "/admin/food-managemant/manage-order/cancel-order",
+            },
           ],
         },
       ],
