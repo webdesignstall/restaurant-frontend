@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 import MobileNavbar from './MobileNavbar'
-import {SignedIn, SignedOut, SignInButton, UserButton} from "@clerk/nextjs";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
 export default function TopNavbar() {
     const [scrollTop, setScrollTop] = useState(0);
@@ -40,7 +40,7 @@ export default function TopNavbar() {
                             </Link>
                         </div>
                         <div></div>
-                        <div className='flex flex-row justify-center items-center'>
+                        <div className='flex flex-row justify-center items-center pr-4'>
                             <ul className='flex flex-row lg:ml-28 h-20 justify-center items-center'>
                                 {
                                     navItem.map((item, index) => (
@@ -69,12 +69,22 @@ export default function TopNavbar() {
                                 </Link>
 
                                 <SignedOut>
-                                    <SignInButton />
+                                    <div className="flex justify-center items-center">
+                                        {/* Custom styled button */}
+                                        <SignInButton>
+                                            <button
+                                                className="text-orange-600"
+                                            >
+                                                Sign In
+                                            </button>
+                                        </SignInButton>
+                                    </div>
                                 </SignedOut>
+                                <div className='p-0 flex  justify-center items-center'>
                                 <SignedIn>
                                     <UserButton />
                                 </SignedIn>
-
+                                </div>
                             </div>
                         </div>
                     </nav>
