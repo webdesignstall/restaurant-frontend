@@ -117,6 +117,28 @@ export const sidebarData: SidebarData = {
             },
           ],
         },
+        {
+          title: 'Reservation',
+          icon: IconBug,
+          items: [
+            {
+              title: "Order List",
+              url: "/admin/food-managemant/reservation/reservation",
+            },
+            {
+              title: "Add Booking",
+              url: "/admin/food-managemant/reservation/tablebooking",
+            },
+            {
+              title: "Unavailable Day",
+              url: "/admin/food-managemant/reservation/unavailablelist",
+            },
+            {
+              title: "Reservation Setting",
+              url: "/admin/food-managemant/reservation/setting",
+            },
+          ],
+        },
       ],
     },
     {
