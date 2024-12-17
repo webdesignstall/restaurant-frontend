@@ -23,6 +23,7 @@ import {
 } from '@tabler/icons-react'
 import { AudioWaveform, Command, GalleryVerticalEnd } from 'lucide-react'
 import { type SidebarData } from '../types'
+import {HomeIcon} from "@radix-ui/react-icons";
 
 export const sidebarData: SidebarData = {
   user: {
@@ -52,6 +53,11 @@ export const sidebarData: SidebarData = {
       title: 'General',
       items: [
         {
+          title: 'Home',
+          url: '/',
+          icon: HomeIcon,
+        },
+        {
           title: 'Dashboard',
           url: '/admin/dashboard',
           icon: IconLayoutDashboard,
@@ -69,7 +75,7 @@ export const sidebarData: SidebarData = {
       items: [
         {
           title: 'Manage Category',
-          icon: IconLockAccess,
+          // icon: IconLockAccess,
           items: [
             {
               title: "Add Category",
@@ -83,7 +89,7 @@ export const sidebarData: SidebarData = {
         },
         {
           title: 'Manage Food',
-          icon: IconBug,
+          // icon: IconBug,
           items: [
             {
               title: "Add Food",
@@ -97,7 +103,7 @@ export const sidebarData: SidebarData = {
         },
         {
           title: 'Manage Order',
-          icon: IconBug,
+          // icon: IconBug,
           items: [
             {
               title: "Order List",
@@ -119,7 +125,7 @@ export const sidebarData: SidebarData = {
         },
         {
           title: 'Reservation',
-          icon: IconBug,
+          // icon: IconBug,
           items: [
             {
               title: "Order List",
