@@ -28,7 +28,8 @@ import {
 import { Input } from "@/components/ui/input"
 import axios from "axios";
 import {Loader} from "lucide-react";
-import {useSearchParams} from "next/navigation";
+import {useRouter, useSearchParams} from "next/navigation";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime"
 
 const FormSchema = z.object({
     id: z.number().nullable().optional(),
@@ -40,7 +41,7 @@ const FormSchema = z.object({
         message: "Please upload a valid image file.",
     }),
     status: z.enum(['DRAFT', 'ACTIVE', 'INACTIVE'], {
-        errorMap: () => ({ message: "Status must be Draft, Active And Inactive." }),
+        errorMap: () => ({message: "Status must be Draft, Active And Inactive."}),
     }),
 })
 
@@ -50,7 +51,7 @@ export default function AddCategoryForm() {
     const [categories, setCategories] = useState([])
     const searchParams = useSearchParams();
     const id = searchParams.get("id");
-
+    const router: AppRouterInstance = useRouter();
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
         defaultValues: {
@@ -72,6 +73,7 @@ export default function AddCategoryForm() {
             toast.success("Success", {
                 description: response?.statusText,
             });
+            router.push('/admin/food-managemant/manage-category/category-list')
         } catch (error: any) {
             if (error.response) {
                 console.error("Server Error:", error.response.data);
@@ -146,6 +148,8 @@ export default function AddCategoryForm() {
                             )}
                         />
 
+
+
                         {/*{
                             categories?.length > 0 && (
                                 <FormField
@@ -179,6 +183,29 @@ export default function AddCategoryForm() {
 
                         }*/}
 
+                        <FormField
+                            control={form.control}
+                            name="status"
+                            render={({ field }) => (
+                                <FormItem className="grid grid-cols-3 justify-center items-center">
+                                    <FormLabel className="font-semibold">Status</FormLabel>
+                                    <Select onValueChange={field.onChange} value={field.value} defaultValue={field.value}>
+                                        <FormControl className="col-span-2">
+                                            <SelectTrigger>
+                                                <SelectValue placeholder="Select status" />
+                                            </SelectTrigger>
+                                        </FormControl>
+                                        <SelectContent>
+                                            <SelectItem value="DRAFT">Draft</SelectItem>
+                                            <SelectItem value="ACTIVE">Active</SelectItem>
+                                            <SelectItem value="INACTIVE">Inactive</SelectItem>
+                                        </SelectContent>
+                                    </Select>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+
                         {/* Image */}
                         <FormField
                             control={form.control}
@@ -210,28 +237,7 @@ export default function AddCategoryForm() {
                         />
 
                         {/* Status */}
-                        <FormField
-                            control={form.control}
-                            name="status"
-                            render={({ field }) => (
-                                <FormItem className="grid grid-cols-3 justify-center items-center">
-                                    <FormLabel className="font-semibold">Status</FormLabel>
-                                    <Select onValueChange={field.onChange} value={field.value} defaultValue={field.value}>
-                                        <FormControl className="col-span-2">
-                                            <SelectTrigger>
-                                                <SelectValue placeholder="Select status" />
-                                            </SelectTrigger>
-                                        </FormControl>
-                                        <SelectContent>
-                                            <SelectItem value="DRAFT">Draft</SelectItem>
-                                            <SelectItem value="ACTIVE">Active</SelectItem>
-                                            <SelectItem value="INACTIVE">Inactive</SelectItem>
-                                        </SelectContent>
-                                    </Select>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
+
 
                         {/* Submit Button with Loader */}
                         {/* @ts-ignore */}

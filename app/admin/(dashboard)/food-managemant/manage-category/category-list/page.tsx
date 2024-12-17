@@ -1,3 +1,4 @@
+'use client'
 import {
   Table,
   TableBody,
@@ -10,8 +11,11 @@ import {
 } from "@/components/ui/table"
 import axios from "axios";
 import { toast } from 'sonner'
+import {useEffect, useState} from "react";
+import {Button} from "@/components/ui/button";
+import Link from "next/link"
 
-const categories = [
+/*const categories = [
   {
     id: "1",
     name: "Electronics",
@@ -42,10 +46,12 @@ const categories = [
     parent: "Electronics",
     status: "Active",
   },
-]
+]*/
 
 
 export default function CategoryList() {
+
+  const [categories, setCategories] = useState([])
 
   const deleteCategory = async (id: number) => {
     try {
@@ -56,7 +62,7 @@ export default function CategoryList() {
         return;
       }
 
-      const response = await axios.delete('/api/categories', {
+      const response = await axios.delete('/api/admin/food-category', {
         data: { id },
       });
 
@@ -64,6 +70,7 @@ export default function CategoryList() {
         toast.success('Success', {
           description: response.statusText || 'Category deleted successfully!',
         });
+        await fetchCategories()
       } else {
         toast.error('Error', {
           description: response.data.error || 'Failed to delete the category.',
@@ -116,6 +123,18 @@ export default function CategoryList() {
     }
   }
 
+  const fetchCategories = async ()=> {
+    try {
+      const {data} = await axios.get('/api/admin/food-category')
+      setCategories(data)
+    }catch (e) {
+
+    }
+  }
+
+  useEffect(() => {
+    fetchCategories().catch()
+  }, [])
 
   return (
     <Table className=" mt-6 border">
@@ -123,19 +142,29 @@ export default function CategoryList() {
       <TableHeader>
         <TableRow className="bg-gray-100">
           <TableHead className="w-[50px]">ID</TableHead>
+          <TableHead>Image</TableHead>
           <TableHead>Name</TableHead>
-          <TableHead>Parent Category</TableHead>
+          {/*<TableHead>Parent Category</TableHead>*/}
           <TableHead>Status</TableHead>
           <TableHead>Action</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
-        {categories.map((category) => (
-          <TableRow key={category.id}>
-            <TableCell className="font-medium">{category.id}</TableCell>
+        {categories?.map((category: any) => (
+          <TableRow key={category?.id}>
+            <TableCell className="font-medium">{category?.id}</TableCell>
+            <TableCell>
+              <img alt='category' src={category?.image} width={80} height={60}/>
+            </TableCell>
             <TableCell>{category.name}</TableCell>
-            <TableCell>{category.parent}</TableCell>
             <TableCell>{category.status}</TableCell>
+            <TableCell>
+              <Button className='mr-4' variant="destructive" onClick={() => deleteCategory(category.id)}>Delete</Button>
+              <Link href={`/admin/food-managemant/manage-category/add-category?id=${category.id}`}>
+                <Button className='bg-yellow-400 text-black hover:bg-yellow-500'>Edit</Button>
+              </Link>
+
+            </TableCell>
           </TableRow>
         ))}
       </TableBody>

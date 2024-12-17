@@ -140,7 +140,7 @@ export async function DELETE(request: any) {
 
         return NextResponse.json(
             { message: 'Category deleted successfully!' },
-            { status: 200 }
+            { status: 200, statusText: 'Category deleted successfully!' }
         );
     } catch (e: any) {
         console.error('Error deleting category:', e);
