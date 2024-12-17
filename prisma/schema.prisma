@@ -18,3 +18,22 @@ model User {
   email String  @unique
   name  String?
 }
+
+model Category {
+  id             Int            @id @default(autoincrement())
+  name           String         @unique
+  slug           String         @unique
+  parentId       Int?
+  parent         Category?      @relation("ParentCategory", fields: [parentId], references: [id])
+  children       Category[]     @relation("ParentCategory")
+  image          String?
+  status         CategoryStatus @default(DRAFT)
+  offerStartDate DateTime?
+  offerEndDate   DateTime?
+}
+
+enum CategoryStatus {
+  DRAFT
+  ACTIVE
+  INACTIVE
+}
