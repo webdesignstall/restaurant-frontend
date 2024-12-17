@@ -23,7 +23,12 @@ export default function Footer() {
                                         {
                                             item.menu.map((item, index) => (
                                                 <li key={index}>
-                                                    <Link className='text-sm text-center lg:text-left flex flex-col justify-center items-center md:justify-start md:items-start pb-2 text-gray-300 hover:text-gray-100 duration-150' href={item.link}>{item.title}</Link>
+                                                    {
+                                                        item?.link ?  <Link className='text-sm text-center lg:text-left flex flex-col justify-center items-center md:justify-start md:items-start pb-2 text-gray-300 hover:text-gray-100 duration-150' href={item.link}>{item.title}</Link>
+                                                            :
+                                                            <div className='text-sm text-center lg:text-left flex flex-col justify-center items-center md:justify-start md:items-start pb-2 text-gray-300 hover:text-gray-100 duration-150'>{item.title}</div>
+                                                    }
+
                                                 </li>
                                             ))
                                         }
@@ -59,7 +64,7 @@ export default function Footer() {
                                 <FaFacebookF size={30} className="cursor-pointer hover:opacity-75" />
                             </div>
                             <div className='text-white text-center w-full lg:text-left'>
-                                © Soy and Spice | Terms & Privacy | Accessibility Statement
+                                <Link href={'/'}> © Soy and Spice </Link> | <Link href={'/terms'}>Terms of Use</Link>  | <Link href={'/accessibility-statement'}>Accessibility Statement</Link>
                             </div>
                         </div>
                     </div>
@@ -86,6 +91,24 @@ const items = [
             {
                 title: 'info@greenhomeinitiatives.com',
                 link: '/contact'
+            },
+            {
+                title: <>
+                    <p>Team code</p>
+                    <p>2043-901</p>
+                </>
+            },
+            {
+                title: <div className='mt-4'>
+                    <p>Nehanth Individual Code</p>
+                    <p>2043-023</p>
+                </div>
+            },
+            {
+                title: <div>
+                    <p>Sarwani Individual Code</p>
+                    <p>2043-087</p>
+                </div>
             },
         ]
     },
