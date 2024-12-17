@@ -144,7 +144,8 @@ export default function TopNavbar() {
     const pathName = usePathname();
     const router = useRouter();
     const { user } = useUser();
-
+    // @ts-ignore
+    const role = user?.publicMetadata?.role;
     // Update scroll position
     useEffect(() => {
         const handleScroll = () => {
@@ -159,7 +160,7 @@ export default function TopNavbar() {
     }, []);
 
     // Redirect users based on roles after signing in
-    useEffect(() => {
+    /*useEffect(() => {
         if (user) {
             const role = user.publicMetadata?.role;
 
@@ -169,7 +170,7 @@ export default function TopNavbar() {
                 router.push('/customer');
             }
         }
-    }, [user, router]);
+    }, [user, router]);*/
 
     return (
         <div>
@@ -226,7 +227,11 @@ export default function TopNavbar() {
                                         </SignInButton>
                                     </div>
                                 </SignedOut>
-                                <div className='p-0 flex justify-center items-center'>
+                                <div className='p-0 flex justify-center items-center space-x-3'>
+                                    {
+                                        user &&  <Link href={role === 'admin' ? '/admin': '/customer'}>Dashboard</Link>
+                                    }
+
                                     <SignedIn>
                                         <UserButton />
                                     </SignedIn>
