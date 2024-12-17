@@ -51,11 +51,11 @@ const orders = [
 
 export default function CustomerOrderList() {
     return (
-        <div className="overflow-x-auto w-full">
+        <div className="overflow-x-auto w-full container mx-auto py-10 max-w-xs lg:max-w-5xl 2xl:max-w-full">
             <div>
                 <div>
                     <div className="py-4 w-full">
-                        <p className="text-center text-2xl font-semibold">Order Time Countdown Board</p>
+                        <p className="text-center lg:text-2xl text-xl font-semibold">Order Time Countdown Board</p>
                     </div>
                     <div>
                         <Table>
