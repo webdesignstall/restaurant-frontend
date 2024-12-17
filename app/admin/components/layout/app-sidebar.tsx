@@ -18,7 +18,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible='icon' variant='floating' {...props}>
       <SidebarHeader>
-        <TeamSwitcher teams={sidebarData.teams} />
+        {/*<TeamSwitcher teams={sidebarData.teams} />*/}
       </SidebarHeader>
       <ScrollArea className="">
       <SidebarContent className={cn('gap-0')}>
