@@ -8,6 +8,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import axios from "axios";
+import { toast } from 'sonner'
 
 const categories = [
   {
@@ -42,7 +44,79 @@ const categories = [
   },
 ]
 
+
 export default function CategoryList() {
+
+  const deleteCategory = async (id: number) => {
+    try {
+      if (!id || typeof id !== 'number') {
+        toast.error('Error', {
+          description: 'A valid category ID is required.',
+        });
+        return;
+      }
+
+      const response = await axios.delete('/api/categories', {
+        data: { id },
+      });
+
+      if (response.status === 200) {
+        toast.success('Success', {
+          description: response.statusText || 'Category deleted successfully!',
+        });
+      } else {
+        toast.error('Error', {
+          description: response.data.error || 'Failed to delete the category.',
+        });
+      }
+    } catch (error: any) {
+      if (axios.isAxiosError(error)) {
+        // Handle specific error responses
+        if (error.response) {
+          const { status, data } = error.response;
+
+          switch (status) {
+            case 400:
+              toast.error('Error', {
+                description: data.error || 'Invalid request data.',
+              });
+              break;
+            case 403:
+              toast.error('Error', {
+                description: data.message || 'You are not authorized to perform this action.',
+              });
+              break;
+            case 404:
+              toast.error('Error', {
+                description: data.error || 'Category not found.',
+              });
+              break;
+            case 409:
+              toast.error('Error', {
+                description: data.error || 'Cannot delete this category due to dependent records.',
+              });
+              break;
+            case 500:
+              toast.error('Error', {
+                description: data.error || 'An unexpected server error occurred.',
+              });
+              break;
+            default:
+              toast.error('Error', {
+                description: 'An unexpected error occurred.',
+              });
+          }
+        }
+      } else {
+        // Handle generic errors
+        toast.error('Error', {
+          description: 'An error occurred while deleting the category.',
+        });
+      }
+    }
+  }
+
+
   return (
     <Table className=" mt-6 border">
       <TableCaption>A list of all categories in the system.</TableCaption>
