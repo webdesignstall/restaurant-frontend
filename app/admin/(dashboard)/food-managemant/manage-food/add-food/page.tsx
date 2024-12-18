@@ -1,9 +1,10 @@
-"use client"
+"use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useState } from "react";
+import { useDropzone } from 'react-dropzone';
 
 import { Button } from "@/components/ui/button";
 import {
@@ -70,6 +71,23 @@ export default function AddFoodForm() {
       menuType: [],
       status: "active",
     },
+  });
+
+  const onDrop = (acceptedFiles: File[]) => {
+    if (acceptedFiles.length > 0) {
+      const file = acceptedFiles[0];
+      const reader = new FileReader();
+      reader.onload = () => setPreviewImage(reader.result as string);
+      reader.readAsDataURL(file);
+      form.setValue("image", file);
+    }
+  };
+
+  const { getRootProps, getInputProps } = useDropzone({
+    onDrop,
+    // @ts-ignore
+    accept: 'image/*',
+    maxFiles: 1,
   });
 
   function onSubmit(data: z.infer<typeof FormSchema>) {
@@ -209,7 +227,7 @@ export default function AddFoodForm() {
                   )}
                 />
 
-                {/* Image */}
+                {/* Image Upload */}
                 <FormField
                   control={form.control}
                   name="image"
@@ -217,26 +235,15 @@ export default function AddFoodForm() {
                     <FormItem className="grid grid-cols-3 justify-center items-center">
                       <FormLabel className="font-semibold">Upload Image</FormLabel>
                       <FormControl className="col-span-2">
-                        <Input
-                          type="file"
-                          accept="image/*"
-                          onChange={(e) => {
-                            const file = e.target.files?.[0];
-                            if (file) {
-                              const reader = new FileReader();
-                              reader.onload = () => setPreviewImage(reader.result as string);
-                              reader.readAsDataURL(file);
-                            }
-                            field.onChange(file);
-                          }}
-                        />
-                      </FormControl>
-                      {previewImage && (
-                        <div className="mt-2">
-                          <img src={previewImage} alt="Preview" className="w-full h-auto max-h-40 object-cover" />
+                        <div {...getRootProps()} className="border p-4 rounded-md cursor-pointer">
+                          <input {...getInputProps()} />
+                          {!previewImage ? (
+                            <p>Drag & drop an image here, or click to select a file</p>
+                          ) : (
+                            <img src={previewImage} alt="Preview" className="w-full h-auto max-h-40 object-cover" />
+                          )}
                         </div>
-                      )}
-                      <div></div>
+                      </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
