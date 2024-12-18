@@ -1,13 +1,9 @@
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableFooter,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+'use client';
+
+import { Table, Typography } from 'antd';
+import type { ColumnsType } from 'antd/es/table';
+
+const { Text } = Typography;
 
 const orders = [
   {
@@ -18,7 +14,7 @@ const orders = [
     table: "T1",
     state: "Served",
     orderDate: "2024-12-10",
-    amount: "$120.00",
+    amount: 120.0,
   },
   {
     sl: 2,
@@ -28,7 +24,7 @@ const orders = [
     table: "T3",
     state: "Pending",
     orderDate: "2024-12-11",
-    amount: "$200.00",
+    amount: 200.0,
   },
   {
     sl: 3,
@@ -38,7 +34,7 @@ const orders = [
     table: "T2",
     state: "Cancelled",
     orderDate: "2024-12-09",
-    amount: "$0.00",
+    amount: 0.0,
   },
   {
     sl: 4,
@@ -48,7 +44,7 @@ const orders = [
     table: "T4",
     state: "Served",
     orderDate: "2024-12-12",
-    amount: "$150.00",
+    amount: 150.0,
   },
   {
     sl: 5,
@@ -58,57 +54,87 @@ const orders = [
     table: "T5",
     state: "Pending",
     orderDate: "2024-12-13",
-    amount: "$80.00",
+    amount: 80.0,
   },
 ];
 
 export default function OrderList() {
+  const columns: ColumnsType<typeof orders[0]> = [
+    {
+      title: "Sl",
+      dataIndex: "sl",
+      key: "sl",
+      align: "center",
+      width: 50,
+    },
+    {
+      title: "Invoice No",
+      dataIndex: "invoiceNo",
+      key: "invoiceNo",
+      render: (text: string) => <Text strong>{text}</Text>,
+    },
+    {
+      title: "Customer Name",
+      dataIndex: "customerName",
+      key: "customerName",
+    },
+    {
+      title: "Waiter",
+      dataIndex: "waiter",
+      key: "waiter",
+    },
+    {
+      title: "Table",
+      dataIndex: "table",
+      key: "table",
+      align: "center",
+    },
+    {
+      title: "State",
+      dataIndex: "state",
+      key: "state",
+      render: (state: string) => {
+        const stateColor =
+          state === "Served"
+            ? "green"
+            : state === "Pending"
+            ? "orange"
+            : "red";
+        return <Text style={{ color: stateColor }}>{state}</Text>;
+      },
+    },
+    {
+      title: "Order Date",
+      dataIndex: "orderDate",
+      key: "orderDate",
+      align: "center",
+    },
+    {
+      title: "Amount",
+      dataIndex: "amount",
+      key: "amount",
+      align: "right",
+      render: (amount: number) => `$${amount.toFixed(2)}`,
+    },
+  ];
+
+  const totalAmount = orders.reduce((sum, order) => sum + order.amount, 0);
+
   return (
-<div>
-  <div>
-    <div>
-      <div className="py-6">
-        <p className="text-xl font-semibold">Order List</p>
-      </div>
-      <div>
-      <Table>
-      <TableCaption>A list of recent orders.</TableCaption>
-      <TableHeader>
-        <TableRow className="bg-gray-100">
-          <TableHead className="w-[50px]">Sl</TableHead>
-          <TableHead>Invoice No</TableHead>
-          <TableHead>Customer Name</TableHead>
-          <TableHead>Waiter</TableHead>
-          <TableHead>Table</TableHead>
-          <TableHead>State</TableHead>
-          <TableHead>Order Date</TableHead>
-          <TableHead className="text-right">Amount</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {orders.map((order) => (
-          <TableRow key={order.invoiceNo}>
-            <TableCell>{order.sl}</TableCell>
-            <TableCell className="font-medium">{order.invoiceNo}</TableCell>
-            <TableCell>{order.customerName}</TableCell>
-            <TableCell>{order.waiter}</TableCell>
-            <TableCell>{order.table}</TableCell>
-            <TableCell>{order.state}</TableCell>
-            <TableCell>{order.orderDate}</TableCell>
-            <TableCell className="text-right">{order.amount}</TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-      <TableFooter>
-        <TableRow>
-          <TableCell colSpan={7}>Total</TableCell>
-          <TableCell className="text-right">$550.00</TableCell>
-        </TableRow>
-      </TableFooter>
-    </Table>
-      </div>
+    <div className="py-6">
+      <Typography.Title level={4}>Order List</Typography.Title>
+      <Table
+        dataSource={orders}
+        columns={columns}
+        rowKey="invoiceNo"
+        pagination={{ pageSize: 5 }}
+        footer={() => (
+          <div style={{ textAlign: "right", fontWeight: "bold" }}>
+            Total: ${totalAmount.toFixed(2)}
+          </div>
+        )}
+        bordered
+      />
     </div>
-  </div>
-</div>
   );
 }

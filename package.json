@@ -41,6 +41,7 @@
     "@tanstack/react-table": "^8.20.5",
     "@types/lodash": "^4.17.13",
     "@types/react-slick": "^0.23.13",
+    "antd": "^5.22.5",
     "axios": "^1.7.9",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

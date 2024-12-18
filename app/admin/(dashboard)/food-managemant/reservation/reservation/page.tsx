@@ -1,15 +1,25 @@
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableFooter,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
+'use client';
 
-const reservations = [
+import { Table, Typography, Tag, Button } from 'antd';
+import type { ColumnsType } from 'antd/es/table';
+
+const { Title } = Typography;
+
+// Define the Reservation interface for TypeScript
+interface Reservation {
+  sl: number;
+  customerName: string;
+  tableNo: number;
+  noOfPeople: number;
+  startTime: string;
+  endTime: string;
+  date: string;
+  status: string;
+  action: string;
+}
+
+// Sample reservation data
+const reservations: Reservation[] = [
   {
     sl: 1,
     customerName: "John Doe",
@@ -45,56 +55,99 @@ const reservations = [
   },
 ];
 
-export default function ReservationTable() {
+const ReservationTable: React.FC = () => {
+  // Define table columns
+  const columns: ColumnsType<Reservation> = [
+    {
+      title: "Sl",
+      dataIndex: "sl",
+      key: "sl",
+      align: "center",
+      width: 50,
+    },
+    {
+      title: "Customer Name",
+      dataIndex: "customerName",
+      key: "customerName",
+    },
+    {
+      title: "Table No",
+      dataIndex: "tableNo",
+      key: "tableNo",
+      align: "center",
+    },
+    {
+      title: "No. of People",
+      dataIndex: "noOfPeople",
+      key: "noOfPeople",
+      align: "center",
+    },
+    {
+      title: "Start Time",
+      dataIndex: "startTime",
+      key: "startTime",
+    },
+    {
+      title: "End Time",
+      dataIndex: "endTime",
+      key: "endTime",
+    },
+    {
+      title: "Date",
+      dataIndex: "date",
+      key: "date",
+    },
+    {
+      title: "Status",
+      dataIndex: "status",
+      key: "status",
+      render: (status) => {
+        let color = "";
+        switch (status) {
+          case "Confirmed":
+            color = "green";
+            break;
+          case "Pending":
+            color = "gold";
+            break;
+          case "Cancelled":
+            color = "red";
+            break;
+          default:
+            color = "blue";
+        }
+        return <Tag color={color}>{status}</Tag>;
+      },
+    },
+    {
+      title: "Action",
+      dataIndex: "action",
+      key: "action",
+      render: (_, record) => (
+        <Button type="link" onClick={() => console.log(`View details for ${record.customerName}`)}>
+          {record.action}
+        </Button>
+      ),
+    },
+  ];
+
   return (
-    <div>
-      <div>
-        <div>
-          <div className="py-4">
-            <p className="text-xl font-semibold">Reservation</p>
+    <div className="py-6">
+      <Title level={4}>Reservation</Title>
+      <Table
+        dataSource={reservations}
+        columns={columns}
+        rowKey="sl"
+        pagination={false}
+        bordered
+        footer={() => (
+          <div style={{ textAlign: "right", fontWeight: "bold" }}>
+            Total Reservations: {reservations.length}
           </div>
-          <div>
-            <Table>
-              <TableCaption>A list of your recent reservations.</TableCaption>
-              <TableHeader>
-                <TableRow className="bg-gray-100">
-                  <TableHead className="w-[50px]">Sl</TableHead>
-                  <TableHead>Customer Name</TableHead>
-                  <TableHead>Table No</TableHead>
-                  <TableHead>No. of People</TableHead>
-                  <TableHead>Start Time</TableHead>
-                  <TableHead>End Time</TableHead>
-                  <TableHead>Date</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead>Action</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {reservations.map((reservation) => (
-                  <TableRow key={reservation.sl}>
-                    <TableCell className="font-medium">{reservation.sl}</TableCell>
-                    <TableCell>{reservation.customerName}</TableCell>
-                    <TableCell>{reservation.tableNo}</TableCell>
-                    <TableCell>{reservation.noOfPeople}</TableCell>
-                    <TableCell>{reservation.startTime}</TableCell>
-                    <TableCell>{reservation.endTime}</TableCell>
-                    <TableCell>{reservation.date}</TableCell>
-                    <TableCell>{reservation.status}</TableCell>
-                    <TableCell className="text-blue-500 cursor-pointer">{reservation.action}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-              <TableFooter>
-                <TableRow>
-                  <TableCell colSpan={9} className="text-right font-semibold">
-                    Total Reservations: {reservations.length}
-                  </TableCell>
-                </TableRow>
-              </TableFooter>
-            </Table>
-          </div>
-        </div>
-      </div>
+        )}
+      />
     </div>
   );
-}
+};
+
+export default ReservationTable;
