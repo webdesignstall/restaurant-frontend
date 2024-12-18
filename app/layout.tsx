@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Roboto } from 'next/font/google';
 import { Toaster } from 'sonner'
-import { ThemeProvider } from "@/components/theme-provider";
-import {ClerkProvider, SignedIn, SignedOut, SignInButton, UserButton} from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 import React from "react";
 
 const roboto = Roboto({
@@ -27,15 +26,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-      <ClerkProvider>
-        <html lang="en">
-          <body
-            className={`${roboto.className} antialiased`}
-          >
-            <Toaster position="top-center" richColors />`
-            {children}
-          </body>
-        </html>
-      </ClerkProvider>
+    <ClerkProvider>
+      <html lang="en">
+        <body
+          className={`${roboto.className} antialiased`}
+        >
+          <Toaster position="top-center" richColors />
+          {children}
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }

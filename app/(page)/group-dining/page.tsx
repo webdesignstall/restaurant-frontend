@@ -25,7 +25,7 @@ export default function GroupDining() {
           <div>
             <div className='py-6 px-4'>
               <div>
-                <p className='text-center font-bebas text-[3rem] font-[900] text-primary tracking-wider'>THROW YOUR PARTY AT TRUE FOOD</p>
+                <p className='text-center font-bebas text-[3rem] font-[900] text-primary tracking-wider'>THROW YOUR PARTY AT SOY AND SPICE</p>
               </div>
               <div>
                 <p className='text-center'>Planning your next event? Let us help make it unforgettable! Whether you’re looking to book a small, intimate gathering, a larger corporate event, or even a full restaurant buyout, we’re here to help you celebrate any occasion. With customizable menus and flexible seating arrangements, we ensure every detail is tailored to create a memorable experience for you and your guests.</p>

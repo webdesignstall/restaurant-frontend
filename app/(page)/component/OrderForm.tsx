@@ -8,6 +8,13 @@ import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { Button } from "@/components/ui/button";
 import {
+  Select,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem
+} from "@/components/ui/select";
+import {
   Form,
   FormControl,
   FormDescription,
@@ -144,63 +151,41 @@ export default function OrderForm() {
               </FormItem>
 
               {/* Preferred Location */}
-              <FormItem className="col-span-2">
-                <FormLabel className="text-white">Preferred Restaurant Location</FormLabel>
-                <Popover open={open} onOpenChange={setOpen}>
-                  <PopoverTrigger asChild>
-                    <Button
-                      variant="outline"
-                      role="combobox"
-                      aria-expanded={open}
-                      className="w-full justify-between rounded-2xl overflow-hidden py-4 bg-white hover:bg-white"
-                    >
-                      {location
-                        ? restaurantOptions.find((option) => option.value === location)?.label
-                        : "Select a location..."}
-                      <ChevronsUpDown className="opacity-50" />
-                    </Button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-80 p-0">
-                    <Command>
-                      <CommandInput placeholder="Search location..." />
-                      <CommandList>
-                        <CommandEmpty>No location found.</CommandEmpty>
-                        <CommandGroup>
-                          {restaurantOptions.map((option) => (
-                            <CommandItem
-                              key={option.value}
-                              value={option.value}
-                              onSelect={(currentValue) => {
-                                setLocation(currentValue === location ? "" : currentValue);
-                                setOpen(false);
-                              }}
-                            >
-                              {option.label}
-                              <Check
-                                className={cn(
-                                  "ml-auto",
-                                  location === option.value ? "opacity-100" : "opacity-0"
-                                )}
-                              />
-                            </CommandItem>
-                          ))}
-                        </CommandGroup>
-                      </CommandList>
-                    </Command>
-                  </PopoverContent>
-                </Popover>
-              </FormItem>
+              <FormField
+                control={form.control}
+                name="preferredLocation"
+                render={({ field }) => (
+                  <FormItem className="col-span-2">
+                    <FormLabel className="text-white">Location</FormLabel>
+                    <FormControl>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <SelectTrigger className="text-center">
+                          <SelectValue className="text-center flex justify-center items-center" placeholder="Select your location" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="new-york">New York</SelectItem>
+                          <SelectItem value="los-angeles">Los Angeles</SelectItem>
+                          <SelectItem value="chicago">Chicago</SelectItem>
+                          <SelectItem value="houston">Houston</SelectItem>
+                          <SelectItem value="miami">Miami</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
               <div className="col-span-2">
-                <p className="text-white">
-                By submitting this form and signing up for email marketing and texts, you consent to receive marketing messages (e.g. promos, cart reminders) from Soy and Spice at the number & email provided, including messages sent by autodialer. Consent is not a condition of purchase. Msg & data rates may apply. Msg frequency varies. Unsubscribe at any time by replying STOP or clicking the unsubscribe link (where available). Privacy Policy & Terms.
+                <p className="text-gray-200 text-sm">
+                  By submitting this form and signing up for email marketing and texts, you consent to receive marketing messages (e.g. promos, cart reminders) from Soy and Spice at the number & email provided, including messages sent by autodialer. Consent is not a condition of purchase. Msg & data rates may apply. Msg frequency varies. Unsubscribe at any time by replying STOP or clicking the unsubscribe link (where available). Privacy Policy & Terms.
                 </p>
               </div>
 
               <div className="col-span-2">
-              <Button type="submit" className="bg-white text-black rounded-full px-8">
-                Submit
-              </Button>
+                <Button disabled type="submit" className="bg-white hover:bg-white/80 text-black rounded-full px-8">
+                  Submit
+                </Button>
               </div>
             </form>
           </Form>
