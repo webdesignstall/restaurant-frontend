@@ -1,6 +1,6 @@
-"use client"
+'use client';
 
-import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Table, Button, Image, Space } from 'antd';
 
 const foods = [
   {
@@ -51,44 +51,85 @@ const foods = [
 ];
 
 export default function FoodTable() {
+  const handleEdit = (id: string) => {
+    console.log(`Editing food with ID: ${id}`);
+  };
+
+  const handleDelete = (id: string) => {
+    console.log(`Deleting food with ID: ${id}`);
+  };
+
+  const columns:any = [
+    {
+      title: 'Image',
+      dataIndex: 'image',
+      key: 'image',
+      render: (image: string) => <Image src={image} alt="Food Image" width={60} height={60} />,
+    },
+    {
+      title: 'Category',
+      dataIndex: 'category',
+      key: 'category',
+    },
+    {
+      title: 'Food Name',
+      dataIndex: 'foodName',
+      key: 'foodName',
+    },
+    {
+      title: 'Components',
+      dataIndex: 'components',
+      key: 'components',
+    },
+    {
+      title: 'VAT',
+      dataIndex: 'vat',
+      key: 'vat',
+      align: 'center',
+    },
+    {
+      title: 'Status',
+      dataIndex: 'status',
+      key: 'status',
+      align: 'center',
+      render: (status: string) => (
+        <span
+          className={
+            status === 'Active'
+              ? 'text-green-600 font-semibold'
+              : 'text-red-600 font-semibold'
+          }
+        >
+          {status}
+        </span>
+      ),
+    },
+    {
+      title: 'Action',
+      key: 'action',
+      align: 'center',
+      render: (_: any, record: { id: string }) => (
+        <Space size="middle">
+          <Button type="link" onClick={() => handleEdit(record.id)}>
+            Edit
+          </Button>
+          <Button type="link" danger onClick={() => handleDelete(record.id)}>
+            Delete
+          </Button>
+        </Space>
+      ),
+    },
+  ];
+
   return (
-    <Table className="mt-6 border">
-      <TableCaption>A list of all food items in the system.</TableCaption>
-      <TableHeader>
-        <TableRow>
-          <TableHead className="w-[50px]">Image</TableHead>
-          <TableHead>Category</TableHead>
-          <TableHead>Food Name</TableHead>
-          <TableHead>Component</TableHead>
-          <TableHead>VAT</TableHead>
-          <TableHead>Status</TableHead>
-          <TableHead>Action</TableHead>
-        </TableRow>
-      </TableHeader>
-      <TableBody>
-        {foods.map((food) => (
-          <TableRow key={food.id}>
-            <TableCell>
-              <img src={food.image} alt={food.foodName} className="w-12 h-12 object-cover rounded" />
-            </TableCell>
-            <TableCell>{food.category}</TableCell>
-            <TableCell>{food.foodName}</TableCell>
-            <TableCell>{food.components}</TableCell>
-            <TableCell>{food.vat}</TableCell>
-            <TableCell>{food.status}</TableCell>
-            <TableCell>
-              <button className="text-blue-500 hover:underline">Edit</button> | <button className="text-red-500 hover:underline">Delete</button>
-            </TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-      <TableFooter>
-        <TableRow>
-          <TableCell colSpan={7} className="text-center font-semibold">
-            Total Foods: {foods.length}
-          </TableCell>
-        </TableRow>
-      </TableFooter>
-    </Table>
+    <Table
+      dataSource={foods}
+      columns={columns}
+      rowKey="id"
+      pagination={{ pageSize: 5 }}
+      bordered
+      title={() => 'Food List'}
+      footer={() => `Total Foods: ${foods.length}`}
+    />
   );
 }

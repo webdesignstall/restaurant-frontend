@@ -26,7 +26,7 @@ export default function MainSlider({ slides }: any) {
     arrows: false,
     appendDots: (dots: any) => (
       <div className="mt-8">
-        <ul className="flex justify-center gap-2 -mt-16 2xl:-mt-16 lg:-mt-28">{dots}</ul>
+        <ul className="flex justify-center gap-2 -mt-16 2xl:-mt-16 lg:-mt-20">{dots}</ul>
       </div>
     ),
     customPaging: (i: number) => (
