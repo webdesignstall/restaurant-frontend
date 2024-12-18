@@ -26,7 +26,7 @@ export default function MainSlider({ slides }: any) {
     arrows: false,
     appendDots: (dots: any) => (
       <div className="mt-8">
-        <ul className="flex justify-center gap-2 -mt-16 2xl:-mt-32 lg:-mt-28">{dots}</ul>
+        <ul className="flex justify-center gap-2 -mt-16 2xl:-mt-16 lg:-mt-28">{dots}</ul>
       </div>
     ),
     customPaging: (i: number) => (
@@ -75,7 +75,7 @@ export default function MainSlider({ slides }: any) {
         {slides.map((slide: any, index: number) => (
           <div
             key={index}
-            className="w-full h-[50vh] sm:h-[60vh] lg:h-[90vh] 2xl:h-[90vh] relative bg-cover bg-center"
+            className="w-full h-[50vh] sm:h-[60vh] lg:h-[80vh] 2xl:h-96 relative bg-cover bg-center"
           >
             {/* Background Image */}
             <Image

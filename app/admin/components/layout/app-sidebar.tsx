@@ -16,16 +16,16 @@ import { cn } from '@/lib/utils'
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar collapsible='icon' variant='floating' {...props}>
+    <Sidebar className={cn('p-0')}  variant='floating' {...props}>
       <SidebarHeader>
         {/*<TeamSwitcher teams={sidebarData.teams} />*/}
       </SidebarHeader>
-      <ScrollArea className="">
-      <SidebarContent className={cn('gap-0')}>
-        {sidebarData.navGroups.map((props) => (
-          <NavGroup key={props.title} {...props} />
-        ))}
-      </SidebarContent>
+      <ScrollArea>
+        <SidebarContent className={cn('gap-0')}>
+          {sidebarData.navGroups.map((props) => (
+            <NavGroup key={props.title} {...props} />
+          ))}
+        </SidebarContent>
       </ScrollArea>
       <SidebarFooter className='hidden'>
         <NavUser user={sidebarData.user} />
