@@ -5,10 +5,14 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import { SignedIn, SignedOut, SignInButton, UserButton, useUser } from '@clerk/nextjs';
 
 export default function MobileNavbar() {
     const [navber, setNavber] = useState(false);
     const [scrollTop, setScrollTop] = useState(0);
+    const { user } = useUser();
+
+    const role = user?.publicMetadata?.role;
 
     // Update scroll position
     useEffect(() => {
@@ -91,11 +95,29 @@ export default function MobileNavbar() {
                                     <ul className="space-y-7 w-full">
                                         {navItem.map((item, index) => (
                                             <li className='w-full' key={index}>
-                                                <Link onClick={() => setNavber(false)} href={item.link} className="text-3xl font-semibold font-bebas border-b-4 border-b-white active:border-b-gray-800 hover:border-b-gray-800  w-full block py-2">
+                                                <Link onClick={() => setNavber(false)} href={item.link} className="text-3xl font-semibold font-bebas border-b-white active:text-gray-600  w-full block py-2">
                                                     {item.title}
                                                 </Link>
                                             </li>
                                         ))}
+                                        <li>
+                                            <SignedOut>
+                                                <div className="flex justify-center items-center">
+                                                    <SignInButton>
+                                                        <button className="text-orange-600">Sign In</button>
+                                                    </SignInButton>
+                                                </div>
+                                            </SignedOut>
+                                            <div className='p-0 flex justify-center items-center space-x-3'>
+                                                {
+                                                    user && <Link href={role === 'admin' ? '/admin' : '/customer'}>Dashboard</Link>
+                                                }
+
+                                                <SignedIn>
+                                                    <UserButton />
+                                                </SignedIn>
+                                            </div>
+                                        </li>
                                     </ul>
                                 </div>
                             </motion.div>

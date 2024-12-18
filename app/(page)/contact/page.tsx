@@ -38,9 +38,8 @@ export default function Contact() {
                             </div>
                             <div>
                                 <p className='text-center'>
-                                    8605 E. Raintree Drive Suite 350 <br />
-                                    Scottsdale, AZ 85260 <br />
-                                    (480) 212-0175
+                                    123 Street, Pennsylvania, USA <br />
+                                    +1 4122927071
                                 </p>
                             </div>
                         </div>

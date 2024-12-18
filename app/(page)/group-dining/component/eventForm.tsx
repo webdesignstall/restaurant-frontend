@@ -70,7 +70,7 @@ export function GroupDiningForm() {
   return (
     <div className="p-4 md:p-8 max-w-lg mx-auto">
       <div>
-        <p className="text-2xl font-semibold py-4">
+        <p className="text-xl text-gray-700 font-semibold py-4">
           Restaurant Location
         </p>
       </div>
@@ -84,17 +84,19 @@ export function GroupDiningForm() {
 
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl className="bg-white border-gray-800 focus-visible:ring-offset-0 py-6">
-                    <SelectTrigger aria-label="Select event type " className={cn('font-semibold')}>
-                      <SelectValue placeholder="Select an option" className={cn('font-semibold')} />
+                    <SelectTrigger aria-label="Select a U.S. location" className={cn('font-semibold')}>
+                      <SelectValue placeholder="Select a location" className={cn('font-semibold')} />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="birthday">Birthday</SelectItem>
-                    <SelectItem value="wedding">Wedding</SelectItem>
-                    <SelectItem value="corporate">Corporate Event</SelectItem>
-                    <SelectItem value="other">Other</SelectItem>
+                    <SelectItem value="new-york">New York</SelectItem>
+                    <SelectItem value="los-angeles">Los Angeles</SelectItem>
+                    <SelectItem value="chicago">Chicago</SelectItem>
+                    <SelectItem value="houston">Houston</SelectItem>
+                    <SelectItem value="miami">Miami</SelectItem>
                   </SelectContent>
                 </Select>
+
                 <FormMessage />
               </FormItem>
             )}

@@ -89,10 +89,6 @@ const items = [
                 link: '/catering'
             },
             {
-                title: 'info@greenhomeinitiatives.com',
-                link: '/contact'
-            },
-            {
                 title: <>
                     <p>Team code</p>
                     <p>2043-901</p>
@@ -168,6 +164,10 @@ const items = [
             {
                 title: 'Talk to True',
                 link: '/careers'
+            },
+            {
+                title: 'Feedback',
+                link: 'https://docs.google.com/forms/d/e/1FAIpQLSdPevm8liSS5FU7fKlkl0u2AEPc1QJXPkSYYpq_z9oFxEtiFQ/viewform?usp=dialog'
             },
         ]
     },
