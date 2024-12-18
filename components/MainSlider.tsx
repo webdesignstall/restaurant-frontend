@@ -75,7 +75,7 @@ export default function MainSlider({ slides }: any) {
         {slides.map((slide: any, index: number) => (
           <div
             key={index}
-            className="w-full h-[50vh] sm:h-[60vh] lg:h-[80vh] 2xl:h-96 relative bg-cover bg-center"
+            className="w-full h-[75vh] lg:h-[80vh] 2xl:h-96 relative bg-cover bg-center"
           >
             {/* Background Image */}
             <Image
