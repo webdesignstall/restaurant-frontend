@@ -113,21 +113,31 @@ export const navItem = [
     },
     {
         id: 2,
+        title: 'Locations',
+        link: '/locations',
+    },
+    {
+        id: 3,
         title: "What's New",
         link: '/whats-new',
     },
     {
-        id: 3,
+        id: 4,
         title: 'Our Story',
         link: '/truestory',
     },
     {
-        id: 4,
+        id: 5,
         title: 'Group Dining',
         link: '/group-dining',
     },
     {
-        id: 5,
+        id: 6,
+        title: 'Happy Hour',
+        link: '/menu/happy-hour',
+    },
+    {
+        id: 7,
         title: 'References',
         link: '/references',
     },
