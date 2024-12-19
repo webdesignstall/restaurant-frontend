@@ -8,6 +8,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { CldImage } from 'next-cloudinary';
 
 export default function MainSlider({ slides }: any) {
   const sliderRef = useRef<Slider | null>(null);
@@ -78,7 +79,7 @@ export default function MainSlider({ slides }: any) {
             className="w-full h-[75vh] lg:h-[80vh] 2xl:h-[30rem] relative bg-cover bg-center"
           >
             {/* Background Image */}
-            <Image
+            <CldImage
               width={1000}
               height={1000}
               className="absolute inset-0 w-full h-full object-cover"

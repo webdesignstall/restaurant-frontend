@@ -1,5 +1,7 @@
 import { Button } from '@/components/ui/button'
 import React from 'react'
+import { CldImage } from 'next-cloudinary';
+
 
 export default function MarkSection() {
     return (
@@ -17,6 +19,12 @@ export default function MarkSection() {
                             Learn More
                         </Button>
                     </div>
+                    {/* <CldImage
+                        width="600"
+                        height="400"
+                        src="paneer_tikka_a_popular_indian_starter_l5tbmh" // The public ID of the image on Cloudinary
+                        alt="Sample Image"
+                    /> */}
                 </div>
             </div>
         </div>

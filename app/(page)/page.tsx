@@ -26,19 +26,19 @@ export default function Home() {
 
 const slides = [
   {
-    background: '/Website_Banner_1551x600.jpg',
+    background: 'sweet_potato_and_coconut_soup_eqjdnb',
     title: 'Our Pie. Your Place.',
     subtitle: 'Pre-order your whole squash pie!',
     buttonText: 'Order Now',
   },
   {
-    background: '/Reservations-Slider_1551x600.jpg',
+    background: 'vegetarian_pizza_mpyirr',
     title: 'Fresh Ingredients, Every Day.',
     subtitle: 'Experience the taste of freshness!',
     buttonText: 'Learn More',
   },
   {
-    background: '/Crispd-Group-Shots_TFK012_DAY06_DSC03333-Enhanced-NR_v02-scaled.jpg',
+    background: 'thai_satay_tofu_uwhc8k',
     title: 'Delicious Recipes Await.',
     subtitle: 'Join us for a culinary journey.',
     buttonText: 'Discover More',
