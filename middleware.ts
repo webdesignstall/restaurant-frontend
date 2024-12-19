@@ -10,6 +10,7 @@ const isPublicRoute = createRouteMatcher([
     '/group-dining(.*)',
     '/menu(.*)',
     '/references(.*)',
+    '/locations(.*)',
     '/truestory(.*)',
     '/whats-new(.*)',
     '/api/webhooks(.*)',
